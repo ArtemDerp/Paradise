@@ -100,13 +100,20 @@
 /obj/item/shredded_paper/attackby(obj/item/W as obj, mob/user)
 	if(istype(W, /obj/item/lighter))
 		burnpaper(W, user)
+	if(is_hot(W))
+		burn()
+		//пы_сы, добавить анимацию огня на бумаге
+		//юзай burn заместо FireBurn, в burn фичи поприкольнее
 	else
 		..()
 
 
-//obj/item/shredded_paper/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume, global_overlay = TRUE)
-	//..()
-	//if(!(resistance_flags & FIRE_PROOF))
+///obj/item/shredded_paper/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume, global_overlay = TRUE)
+//	..()
+//	if(!(resistance_flags & FIRE_PROOF))
+//		desc = "<i>Heat-curled corners and sooty words offer little insight. Whatever was once written on this page has been rendered illegible through fire.</i>"
+// тут хз что описывать, крч оно работает и ладно xdd
+
 
 /obj/item/shredded_paper/proc/burnpaper(obj/item/lighter/P, mob/user)
 	if(user.restrained())
@@ -136,6 +143,6 @@
 	throw_range = 3
 	throw_speed = 2
 
-/obj/item/shredded_paper/New()
-	..()
+/obj/item/shredded_paper/Initialize(mapload)
+	. = ..()
 	if(prob(65)) color = pick("#7c7c7c","#505050", "#665858")
