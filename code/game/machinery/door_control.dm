@@ -33,6 +33,27 @@
 /obj/machinery/door_control/alt
 	icon_state = "altdoorctrl"
 
+/obj/machinery/door_control/mimic
+	icon = 'icons/obj/lighting.dmi'
+	icon_state = "lantern"
+
+/obj/machinery/door_control/mimic/attack_hand(mob/user as mob)
+	add_fingerprint(user)
+	if(stat & (NOPOWER|BROKEN))
+		return
+
+	if(!allowed(user) && (wires & 1) && !user.can_advanced_admin_interact())
+		to_chat(user, span_warning("Access Denied."))
+		playsound(src, pick('sound/machines/button.ogg', 'sound/machines/button_alternate.ogg', 'sound/machines/button_meloboom.ogg'), 20)
+		return
+
+	use_power(5)
+	to_chat(user, span_warning("Something clicked."))
+	do_main_action(user)
+
+/obj/machinery/door_control/mimic/update_icon()
+	return
+
 /obj/machinery/door_control/attack_ai(mob/user as mob)
 	if(wires & 2)
 		return attack_hand(user)
