@@ -473,3 +473,13 @@
 	lootcount = 1
 	loot = list(/mob/living/simple_animal/hostile/asteroid/marrowweaver = 40,
 			"" = 60)
+
+/obj/effect/spawner/lootdrop/bouquet_spawner
+	name = "50% bouquet spawner"
+	icon_state = "bouquet"
+	lootdoubles = 0
+
+	loot = list(
+				/obj/item/decorations/bouquets/random = 50,
+				"" = 50,
+				)
