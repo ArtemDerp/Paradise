@@ -7731,6 +7731,16 @@
 	icon_state = "whitehall"
 	},
 /area/toxins/xenobiology)
+"baX" = (
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
+/obj/item/flag/nt,
+/turf/simulated/floor/plasteel{
+	dir = 10;
+	icon_state = "green"
+	},
+/area/hallway/secondary/exit)
 "baY" = (
 /obj/structure/table,
 /obj/item/storage/firstaid/regular,
@@ -19403,6 +19413,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit/maint)
+"cev" = (
+/obj/effect/decal/warning_stripes/yellow/partial{
+	dir = 1
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "neutral"
+	},
+/area/hallway/secondary/exit)
 "cew" = (
 /obj/machinery/camera{
 	c_tag = "Arrivals Hall Center"
@@ -36434,6 +36452,18 @@
 	tag = "icon-vault (NORTHEAST)"
 	},
 /area/crew_quarters/bar/atrium)
+"dzw" = (
+/obj/effect/turf_decal/caution{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	id_tag = "graveyard_church";
+	locked = 1
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "dark"
+	},
+/area/hallway/secondary/exit)
 "dzx" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -41490,11 +41520,9 @@
 /turf/simulated/floor/carpet/purple,
 /area/hallway/secondary/exit)
 "dTy" = (
-/obj/structure/chair{
-	dir = 1
-	},
 /turf/simulated/floor/plasteel{
-	icon_state = "green"
+	dir = 8;
+	icon_state = "greencorner"
 	},
 /area/hallway/secondary/exit)
 "dTz" = (
@@ -52496,6 +52524,19 @@
 	icon_state = "neutralcorner"
 	},
 /area/crew_quarters/fitness)
+"gek" = (
+/obj/docking_port/stationary{
+	name = "Station Church dock";
+	dir = 2;
+	id = "graveyard_church";
+	dwidth = 2;
+	width = 10;
+	height = 7
+	},
+/turf/space{
+	icon_state = "black"
+	},
+/area/space)
 "gem" = (
 /obj/machinery/light,
 /obj/machinery/newscaster{
@@ -70909,6 +70950,11 @@
 	icon_state = "darkblue"
 	},
 /area/bridge)
+"kyN" = (
+/turf/simulated/floor/plasteel{
+	icon_state = "greencorner"
+	},
+/area/hallway/secondary/exit)
 "kyT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
@@ -99203,6 +99249,16 @@
 	},
 /turf/simulated/floor/wood/fancy/cherry,
 /area/lawoffice)
+"qSa" = (
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
+/obj/item/flag/nt,
+/turf/simulated/floor/plasteel{
+	dir = 6;
+	icon_state = "green"
+	},
+/area/hallway/secondary/exit)
 "qSE" = (
 /obj/item/radio/intercom{
 	dir = 1;
@@ -130520,6 +130576,13 @@
 	icon_state = "darkblue"
 	},
 /area/medical/morgue)
+"xWG" = (
+/obj/machinery/door/airlock/external{
+	id_tag = "graveyard_church";
+	locked = 1
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/exit)
 "xWJ" = (
 /obj/machinery/cryopod{
 	dir = 8
@@ -166808,7 +166871,7 @@ acF
 aaq
 coE
 aaq
-bCI
+aaq
 aaq
 aaq
 aaq
@@ -167064,8 +167127,8 @@ coE
 coE
 aaq
 bCI
-coE
-bCI
+aaq
+aaq
 aaq
 aaq
 aaq
@@ -167322,7 +167385,7 @@ bCI
 coE
 bCI
 aaq
-bCI
+aaq
 aaq
 aaq
 aaq
@@ -167578,13 +167641,13 @@ coE
 coE
 aaq
 bCI
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
 aaq
 yhg
 yhg
@@ -167833,15 +167896,15 @@ dTs
 dIO
 aaq
 coE
-aaq
 coE
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
+bCI
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
 aaq
 yhg
 yhg
@@ -168092,13 +168155,13 @@ coE
 coE
 aaq
 bCI
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
 aaq
 yhg
 yhg
@@ -168347,15 +168410,15 @@ dTw
 dIO
 coE
 bCI
-coE
-bCI
 aaq
 aaq
-aaq
-aaq
-aaq
-aaq
-aaq
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
 aaq
 yhg
 yhg
@@ -168604,15 +168667,15 @@ dSi
 kUB
 coE
 bCI
-aaq
 coE
 aaq
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
 aaq
 yhg
 yhg
@@ -168859,17 +168922,17 @@ xtb
 dTi
 dUf
 kUB
+kUB
+kUB
 coE
-bCI
-aaq
-bCI
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
+coE
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
 aaq
 yhg
 yhg
@@ -169115,18 +169178,18 @@ oTc
 nkv
 iJa
 dTy
+pvm
+baX
 dIO
-coE
-bCI
-coE
-bCI
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
+dIO
+dIO
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
 aaq
 aae
 aaq
@@ -169371,19 +169434,19 @@ xQY
 gVK
 kpn
 dTD
-dTy
-dIO
-coE
-coE
-aaq
-bCI
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
+xQY
+xQY
+cev
+dzw
+dXa
+xWG
+gek
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
 aaq
 aaq
 aaq
@@ -169628,19 +169691,19 @@ xQY
 dXa
 dXa
 dXa
-dTy
+kyN
+fkq
+qSa
 dIO
-aaq
-coE
-aaq
-coE
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
+dIO
+dIO
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
 aaq
 aaq
 aaq
@@ -169887,17 +169950,17 @@ qEK
 sCz
 dXK
 kUB
+kUB
+kUB
 coE
 coE
-aaq
-bCI
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
+yhg
 aaq
 aaq
 aaq
@@ -170146,8 +170209,8 @@ kUB
 kUB
 coE
 bCI
+coE
 aaq
-bCI
 aaq
 aaq
 aaq
