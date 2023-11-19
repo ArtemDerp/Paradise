@@ -1560,7 +1560,7 @@
 "ku" = (
 /obj/machinery/computer{
 	icon_state = "biogen-empty";
-	icon = 'icons/obj/biogenerator.dmi';
+	icon = 'icons/obj/machines/biogenerator.dmi';
 	pixel_x = -2;
 	pixel_y = -3
 	},
@@ -1787,7 +1787,7 @@
 	},
 /obj/structure/showcase/horrific_experiment{
 	icon_state = "cell-on";
-	icon = 'icons/obj/cryogenics.dmi';
+	icon = 'icons/obj/machines/cryogenics.dmi';
 	layer = 2.9
 	},
 /turf/simulated/floor/plasteel,
@@ -2594,7 +2594,7 @@
 "qR" = (
 /obj/structure/showcase/horrific_experiment{
 	icon_state = "cellold1";
-	icon = 'icons/obj/cryogenics.dmi'
+	icon = 'icons/obj/machines/cryogenics.dmi'
 	},
 /turf/simulated/floor/plasteel,
 /area/space)
@@ -3009,7 +3009,7 @@
 "ti" = (
 /obj/structure/showcase/horrific_experiment{
 	icon_state = "pod1half";
-	icon = 'icons/obj/cryogenics.dmi';
+	icon = 'icons/obj/machines/cryogenics.dmi';
 	bubble_icon = "lid1half"
 	},
 /turf/simulated/floor/plasteel,
@@ -3269,7 +3269,7 @@
 "uL" = (
 /obj/structure/showcase/horrific_experiment{
 	icon_state = "cell-open";
-	icon = 'icons/obj/cryogenics.dmi'
+	icon = 'icons/obj/machines/cryogenics.dmi'
 	},
 /turf/simulated/floor/plasteel,
 /area/space)
@@ -4578,7 +4578,7 @@
 "Eu" = (
 /obj/structure/showcase/horrific_experiment{
 	icon_state = "cell-occupied";
-	icon = 'icons/obj/cryogenics.dmi'
+	icon = 'icons/obj/machines/cryogenics.dmi'
 	},
 /turf/simulated/floor/plasteel,
 /area/space)
@@ -4785,6 +4785,13 @@
 	icon_state = "dark"
 	},
 /area/space)
+"FR" = (
+/obj/machinery/computer{
+	icon = 'icons/obj/machines/computer3.dmi';
+	icon_state = "frame-rnd"
+	},
+/turf/simulated/floor/plasteel,
+/area/space)
 "FY" = (
 /obj/structure/closet/secure_closet/engineering_personal,
 /turf/simulated/floor/plasteel,
@@ -4915,7 +4922,7 @@
 /area/space)
 "GS" = (
 /obj/machinery/computer{
-	icon = 'icons/obj/computer3.dmi';
+	icon = 'icons/obj/machines/computer3.dmi';
 	icon_state = "serverframe"
 	},
 /turf/simulated/floor/plasteel,
@@ -4971,7 +4978,7 @@
 "Hm" = (
 /obj/structure/showcase/horrific_experiment{
 	icon_state = "pod1half";
-	icon = 'icons/obj/cryogenics.dmi';
+	icon = 'icons/obj/machines/cryogenics.dmi';
 	bubble_icon = "lid1half"
 	},
 /obj/machinery/atmospherics/unary/portables_connector,
@@ -5091,6 +5098,14 @@
 	},
 /turf/simulated/floor/engine,
 /area/space)
+"Ix" = (
+/obj/machinery/computer{
+	icon_state = "rackframe";
+	icon = 'icons/obj/machines/computer3.dmi';
+	layer = 2.8
+	},
+/turf/simulated/floor/plasteel,
+/area/space)
 "IC" = (
 /obj/effect/turf_decal{
 	dir = 4;
@@ -5169,7 +5184,7 @@
 "Ja" = (
 /obj/structure/showcase/horrific_experiment{
 	icon_state = "cellold0";
-	icon = 'icons/obj/cryogenics.dmi'
+	icon = 'icons/obj/machines/cryogenics.dmi'
 	},
 /turf/simulated/floor/plasteel,
 /area/space)
@@ -6906,7 +6921,7 @@
 "UX" = (
 /obj/structure/showcase/horrific_experiment{
 	icon_state = "cellold2";
-	icon = 'icons/obj/cryogenics.dmi'
+	icon = 'icons/obj/machines/cryogenics.dmi'
 	},
 /turf/simulated/floor/plasteel,
 /area/space)
@@ -7317,7 +7332,7 @@
 	},
 /obj/structure/showcase/horrific_experiment{
 	icon_state = "pod1half";
-	icon = 'icons/obj/cryogenics.dmi';
+	icon = 'icons/obj/machines/cryogenics.dmi';
 	bubble_icon = "lid1half"
 	},
 /turf/simulated/floor/plasteel,
@@ -7531,7 +7546,7 @@
 /area/space)
 "YD" = (
 /obj/machinery/computer{
-	icon = 'icons/obj/computer3.dmi';
+	icon = 'icons/obj/machines/computer3.dmi';
 	icon_state = "logic_convert";
 	pixel_x = -17
 	},
@@ -39874,7 +39889,7 @@ Tt
 qJ
 Sl
 MQ
-sY
+Ix
 Tt
 LN
 LN
@@ -40902,7 +40917,7 @@ Tt
 kN
 Sl
 Sl
-md
+FR
 Tt
 LN
 Tt
@@ -41416,7 +41431,7 @@ Tt
 Bl
 Sl
 Sl
-md
+FR
 Tt
 LN
 Tt
@@ -63706,8 +63721,8 @@ Yx
 Yx
 Yx
 Yx
-Yx
 ic
+Yx
 Yx
 Yx
 Yx
@@ -63966,9 +63981,9 @@ Sl
 Sl
 Sl
 Sl
-Sl
-Sl
 Tt
+Sl
+Sl
 Sl
 Sl
 Sl
@@ -64223,13 +64238,13 @@ Sl
 Sl
 Sl
 Sl
-Sl
-Sl
 Tt
 Sl
 Ht
 Sl
+Sl
 Ht
+Sl
 Sl
 Yx
 Sl
@@ -64480,9 +64495,9 @@ Sl
 Sl
 Sl
 Sl
-Sl
-Sl
 Tt
+Sl
+Sl
 Sl
 Sl
 Sl
@@ -64737,9 +64752,9 @@ Sl
 Sl
 Sl
 Sl
-Sl
-Sl
 Tt
+Sl
+Sl
 Sl
 Sl
 Sl
@@ -64994,9 +65009,9 @@ Sl
 Sl
 Sl
 Sl
-Sl
-Sl
 Tt
+Sl
+Sl
 Sl
 Sl
 Sl
@@ -65251,13 +65266,13 @@ Sl
 Sl
 Sl
 Sl
-Sl
-Sl
 Tt
 Sl
 Ht
 Sl
+Sl
 Ht
+Sl
 Sl
 wb
 Sl
@@ -65508,9 +65523,9 @@ Sl
 Sl
 Sl
 Sl
-Sl
-Sl
 Tt
+Sl
+Sl
 Sl
 Sl
 Sl
@@ -65765,9 +65780,9 @@ Yx
 Yx
 Yx
 Yx
-Yx
-Yx
 Tt
+Sl
+Sl
 Sl
 Sl
 Sl
@@ -66022,9 +66037,9 @@ LN
 LN
 LN
 LN
-LN
-LN
 Tt
+Sl
+Sl
 Sl
 Sl
 Sl
@@ -66279,13 +66294,13 @@ LN
 LN
 LN
 LN
-LN
-LN
 Tt
 Sl
 Ht
 Sl
+Sl
 Ht
+Sl
 Sl
 Yx
 Sl
@@ -66536,9 +66551,9 @@ LN
 LN
 LN
 LN
-LN
-LN
 Tt
+Sl
+Sl
 Sl
 Sl
 Sl
@@ -66793,8 +66808,8 @@ LN
 LN
 LN
 LN
-LN
-LN
+Tt
+Tt
 Tt
 Tt
 Tt
@@ -67824,28 +67839,28 @@ LN
 LN
 LN
 LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
 Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-YX
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-VV
+nz
+nz
+nz
+nz
+nz
+nz
+nz
+nz
+nz
+nz
+nz
+nz
 nz
 nz
 nz
@@ -68082,6 +68097,15 @@ LN
 LN
 LN
 Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
 YX
 WH
 WH
@@ -68091,18 +68115,9 @@ WH
 WH
 WH
 WH
-Ot
-Px
-nY
-Pj
-jf
-bq
-cZ
-Ot
-Ot
-Gn
-Ot
-kw
+WH
+WH
+VV
 nz
 nz
 nz
@@ -68339,30 +68354,30 @@ LN
 LN
 LN
 Tt
-HP
-Ot
-Ot
-Xb
-Ot
-Xb
-Ot
-Ot
-Ot
-Ot
-Ot
-ev
+YX
+WH
+WH
+WH
+WH
+WH
+WH
+WH
+WH
 Ot
 Px
-aV
+nY
+Pj
+jf
+bq
+cZ
 Ot
 Ot
+Gn
 Ot
-VA
-op
 kw
 nz
 nz
-zl
+nz
 Tt
 LN
 LN
@@ -68597,35 +68612,35 @@ LN
 LN
 Tt
 HP
-Qn
-Qn
-Qn
-Qn
-Qn
-Qn
-Qn
+Ot
+Ot
+Xb
+Ot
+Xb
+Ot
+Ot
 Ot
 Ot
 Ot
 ev
 Ot
-Of
-ev
-Of
+Px
+aV
 Ot
 Ot
 Ot
-Ot
+VA
+op
 kw
 nz
 nz
 zl
 Tt
-Tt
-Tt
-Tt
-Tt
-Tt
+LN
+LN
+LN
+LN
+LN
 LN
 LN
 ZW
@@ -68855,33 +68870,33 @@ LN
 Tt
 HP
 Qn
-Cc
-nv
-pU
-nv
-Cc
+Qn
+Qn
+Qn
+Qn
+Qn
 Qn
 Ot
 Ot
 Ot
 ev
-Qn
-Qn
-up
-Qn
-Qn
-ND
-rA
-rA
-Zm
+Ot
+Of
+ev
+Of
+Ot
+Ot
+Ot
+Ot
+kw
 nz
 nz
 zl
 Tt
-fh
-nz
-nz
-nz
+Tt
+Tt
+Tt
+Tt
 Tt
 LN
 LN
@@ -69112,33 +69127,33 @@ LN
 Tt
 HP
 Qn
-pU
-pU
+Cc
 nv
 pU
-pU
+nv
+Cc
 Qn
 Ot
-Pj
-Pj
-zR
-Qn
 Ot
-qw
-bH
-Qn
-kw
-rO
 Ot
-qp
+ev
+Qn
+Qn
+up
+Qn
+Qn
+ND
+rA
+rA
+Zm
 nz
 nz
-Ok
+zl
 Tt
+fh
 nz
-Zd
 nz
-Zd
+nz
 Tt
 LN
 LN
@@ -69371,31 +69386,31 @@ HP
 Qn
 pU
 pU
-ZH
+nv
 pU
-cx
-Pl
-Ot
-Ot
-Ot
-Of
+pU
 Qn
 Ot
+Pj
+Pj
+zR
+Qn
 Ot
-Cg
-Jy
-uA
-PM
-xY
-TD
+qw
+bH
+Qn
+kw
+rO
+Ot
+qp
 nz
 nz
+Ok
+Tt
 nz
-kB
-Uo
+Zd
 nz
-nz
-nz
+Zd
 Tt
 LN
 LN
@@ -69628,31 +69643,31 @@ HP
 Qn
 pU
 pU
-nv
+ZH
 pU
-pU
+cx
+Pl
+Ot
+Ot
+Ot
+Of
 Qn
 Ot
-hp
-hp
-RE
-Qn
 Ot
-aZ
-Ot
-Qn
-kw
-rO
-Ot
-iX
+Cg
+Jy
+uA
+PM
+xY
+TD
 nz
 nz
-Ok
-Tt
 nz
-Zd
+kB
+Uo
 nz
-Zd
+nz
+nz
 Tt
 LN
 LN
@@ -69883,33 +69898,33 @@ LN
 Tt
 HP
 Qn
-Cc
-nv
+pU
 pU
 nv
-Cc
+pU
+pU
 Qn
 Ot
+hp
+hp
+RE
+Qn
 Ot
+aZ
 Ot
-Iv
 Qn
-Qn
-Lx
-Qn
-Qn
-yQ
-WH
-WH
-VV
+kw
+rO
+Ot
+iX
 nz
 nz
-El
+Ok
 Tt
-fh
 nz
+Zd
 nz
-nz
+Zd
 Tt
 LN
 LN
@@ -70140,33 +70155,33 @@ LN
 Tt
 HP
 Qn
-Qn
-Qn
-Qn
-Qn
-Qn
+Cc
+nv
+pU
+nv
+Cc
 Qn
 Ot
 Ot
 Ot
 Iv
-Ot
-Of
-Iv
-Of
-Ot
-Ot
-Ot
-Ot
-kw
+Qn
+Qn
+Lx
+Qn
+Qn
+yQ
+WH
+WH
+VV
 nz
 nz
 El
 Tt
-Tt
-Tt
-Tt
-Tt
+fh
+nz
+nz
+nz
 Tt
 LN
 LN
@@ -70396,35 +70411,35 @@ LN
 LN
 Tt
 HP
-Ot
-Ot
-jn
-Ot
-jn
-Ot
-Ot
+Qn
+Qn
+Qn
+Qn
+Qn
+Qn
+Qn
 Ot
 Ot
 Ot
 Iv
 Ot
-Px
-aV
+Of
+Iv
+Of
 Ot
 Ot
 Ot
-VA
-op
+Ot
 kw
 nz
 nz
 El
 Tt
-LN
-LN
-LN
-LN
-LN
+Tt
+Tt
+Tt
+Tt
+Tt
 LN
 LN
 ZW
@@ -70652,30 +70667,30 @@ LN
 LN
 LN
 Tt
-HA
-rA
-rA
-rA
-rA
-rA
-rA
-rA
-rA
+HP
+Ot
+Ot
+jn
+Ot
+jn
+Ot
+Ot
+Ot
+Ot
+Ot
+Iv
 Ot
 Px
-Hj
-hp
-zr
-gO
-cZ
+aV
 Ot
 Ot
-Gn
 Ot
+VA
+op
 kw
 nz
 nz
-nz
+El
 Tt
 LN
 LN
@@ -70909,30 +70924,30 @@ LN
 LN
 LN
 Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
 HA
 rA
 rA
 rA
-hU
-aK
-aw
 rA
 rA
 rA
 rA
-Zm
+rA
+Ot
+Px
+Hj
+hp
+zr
+gO
+cZ
+Ot
+Ot
+Gn
+Ot
+kw
 nz
 nz
-zl
+nz
 Tt
 LN
 LN
@@ -71165,28 +71180,28 @@ LN
 LN
 LN
 LN
-LN
-LN
-LN
-LN
-LN
-LN
-LN
-LN
-LN
 Tt
-Sa
-nz
-nz
-nz
-nz
-nz
-nz
-nz
-nz
-nz
-nz
-nz
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+HA
+rA
+rA
+rA
+hU
+aK
+aw
+rA
+rA
+rA
+rA
+Zm
 nz
 nz
 zl
@@ -71421,7 +71436,7 @@ ZW
 ZW
 ZW
 ZW
-ZW
+LN
 LN
 LN
 LN
@@ -71432,20 +71447,20 @@ LN
 LN
 LN
 Tt
-Oz
-nz
-Rc
-nz
-Rc
-nz
-fA
+Sa
 nz
 nz
 nz
 nz
 nz
-zl
-zl
+nz
+nz
+nz
+nz
+nz
+nz
+nz
+nz
 zl
 Tt
 LN
@@ -71689,21 +71704,21 @@ LN
 LN
 LN
 Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
-Tt
+Oz
+nz
+Rc
+nz
+Rc
+nz
+fA
+nz
+nz
+nz
+nz
+nz
+zl
+zl
+zl
 Tt
 LN
 LN
@@ -71936,37 +71951,37 @@ ZW
 ZW
 ZW
 ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+Tt
+LN
+LN
+LN
+LN
+LN
 ZW
 ZW
 ZW
