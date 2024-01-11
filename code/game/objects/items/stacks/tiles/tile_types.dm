@@ -81,6 +81,18 @@
 	icon_state = "tile-wood-cherry"
 	turf_type = /turf/simulated/floor/wood/cherry
 
+/obj/item/stack/tile/wood/parquet
+	name = "parquet wood floor tile"
+	singular_name = "parquet wood floor tile"
+	icon_state = "tile-wood_parquet"
+	turf_type = /turf/simulated/floor/wood/parquet
+
+/obj/item/stack/tile/wood/tile
+	name = "tiled wood floor tile"
+	singular_name = "tiled wood floor tile"
+	icon_state = "tile-wood_tile"
+	turf_type = /turf/simulated/floor/wood/tile
+
 /obj/item/stack/tile/wood/fancy/oak
 	name = "fancy oak wood floor tiles"
 	singular_name = "fancy oak wood floor tile"

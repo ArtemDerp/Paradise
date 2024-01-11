@@ -746,6 +746,11 @@ GLOBAL_LIST_INIT(bamboo_recipes, list(
 	new /datum/stack_recipe("Bamboo spear", /obj/item/twohanded/bamboospear, 25, time = 90),
 	new /datum/stack_recipe("Blow gun", /obj/item/gun/syringe/blowgun, 10, time = 70),
 	new /datum/stack_recipe("Punji sticks trap", /obj/structure/punji_sticks, 5, time = 30, one_per_turf = TRUE, on_floor = TRUE),
+	new/datum/stack_recipe_list("bamboo benches", list(
+		new /datum/stack_recipe("bamboo bench (middle)", /obj/structure/chair/sofa/bamboo, 3, time = 30, one_per_turf = TRUE, on_floor = TRUE),
+		new /datum/stack_recipe("bamboo bench (left)", /obj/structure/chair/sofa/bamboo/left, 3, time = 30, one_per_turf = TRUE, on_floor = TRUE),
+		new /datum/stack_recipe("bamboo bench (right)", /obj/structure/chair/sofa/bamboo/right, 3, time = 30, one_per_turf = TRUE, on_floor = TRUE),
+	)),
 ))
 
 /obj/item/stack/sheet/bamboo

@@ -303,7 +303,26 @@
 	desc = "The tomb of many a miner and possibly a home for much worse things."
 	icon_state = "lava_land_display"
 
+/obj/structure/decorative_structures/flammable/hedge
+	name = "hedge"
+	desc = "A large bushy hedge."
+	icon_state = "hedge"
+	density = 0
+	anchored = TRUE
+	opacity = FALSE
+	max_integrity = 80
 
+/obj/structure/decorative_structures/flammable/hedge/opaque
+	opacity = TRUE
+
+/obj/structure/decorative_structures/flammable/hedge/attacked_by(obj/item/I, mob/living/user)
+	if(opacity && is_sharp(I))
+		to_chat(user,span_notice("You start trimming \the [src]."))
+		if(do_after(user, 3 SECONDS,target = src))
+			to_chat(user,span_notice("You finish trimming \the [src]."))
+			opacity = FALSE
+	else
+		return ..()
 
 ///////
 //Decorative corpses

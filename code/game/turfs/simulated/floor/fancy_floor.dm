@@ -56,6 +56,16 @@
 	floor_tile = /obj/item/stack/tile/wood/cherry
 	broken_states = list("wood-cherry-broken", "wood-cherry-broken2", "wood-cherry-broken3", "wood-cherry-broken4", "wood-cherry-broken5", "wood-cherry-broken6", "wood-cherry-broken7")
 
+/turf/simulated/floor/wood/parquet
+	icon_state = "wood_parquet"
+	floor_tile = /obj/item/stack/tile/wood/parquet
+	broken_states = list("wood_parquet-broken", "wood_parquet-broken2", "wood_parquet-broken3", "wood_parquet-broken4", "wood_parquet-broken5", "wood_parquet-broken6", "wood_parquet-broken7")
+
+/turf/simulated/floor/wood/tile
+	icon_state = "wood_tile"
+	floor_tile = /obj/item/stack/tile/wood/tile
+	broken_states = list("wood_tile-broken", "wood_tile-broken2", "wood_tile-broken3")
+
 /turf/simulated/floor/wood/fancy/oak
 	icon_state = "fancy-wood-oak"
 	floor_tile = /obj/item/stack/tile/wood/fancy/oak
