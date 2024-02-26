@@ -393,3 +393,8 @@
 	description = "Its old space USSP Banya.... She looks very abandoned."
 	cost = 2
 	allow_duplicates = FALSE
+
+/datum/map_template/ruin/space/syntmeat_factory
+	id = "syntmeat_factory"
+	suffix = "syntmeat_factory.dmm"
+	name = "syntmeat_factory"
