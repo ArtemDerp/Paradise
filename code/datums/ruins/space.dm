@@ -394,7 +394,9 @@
 	cost = 2
 	allow_duplicates = FALSE
 
+/*
 /datum/map_template/ruin/space/syntmeat_factory
 	id = "syntmeat_factory"
 	suffix = "syntmeat_factory.dmm"
 	name = "syntmeat_factory"
+*/
