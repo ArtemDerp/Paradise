@@ -394,9 +394,11 @@
 	cost = 2
 	allow_duplicates = FALSE
 
-/*
-/datum/map_template/ruin/space/syntmeat_factory
-	id = "syntmeat_factory"
-	suffix = "syntmeat_factory.dmm"
-	name = "syntmeat_factory"
-*/
+/datum/map_template/ruin/space/syntmeat_laboratory
+	id = "syntmeat_laboratory"
+	suffix = "syntmeat_laboratory.dmm"
+	name = "syntmeat_laboratory"
+	description = "..."
+	cost = 0  ////5
+	allow_duplicates = FALSE
+	always_place = TRUE
