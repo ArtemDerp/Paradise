@@ -83,6 +83,8 @@
 	var/mob/living/carbon/human/victim = target
 	if(!istype(victim))
 		return
+	if(!victim.dna || (NO_BLOOD in victim.dna.species.species_traits))
+		return
 	var/list/available_zones = list(BODY_ZONE_L_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_ARM, BODY_ZONE_R_LEG)
 	var/list/zone_candidates = list()
 	for(var/bodypart in available_zones)
