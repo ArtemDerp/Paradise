@@ -178,3 +178,10 @@
 	desc = "Used to treat cranial swelling."
 	icon_state = "pill19"
 	list_reagents = list("mannitol" = 20)
+
+/obj/item/reagent_containers/food/pill/retrovirus
+	name = "странная таблетка"
+	desc = "Упругая и зловонная таблетка. Лучше не принимать."
+	icon_state = "pill4"
+	spawned_disease = /datum/disease/virus/dna_retrovirus
+	disease_amount = 0.1

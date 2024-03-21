@@ -69,6 +69,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/effect/viral_gas,
 /turf/simulated/floor/plasteel/white,
 /area/vision_change_area/syntmeat_laboratory/virology)
 "at" = (
@@ -213,6 +214,7 @@
 	icon_state = "1-8";
 	tag = ""
 	},
+/obj/item/stack/cable_coil/yellow,
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/maintenance)
 "aZ" = (
@@ -417,6 +419,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/viral_gas,
+/obj/item/paper/crumpled/syntmeat_laboratory/virus,
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/virology)
 "bY" = (
@@ -461,6 +464,10 @@
 /area/vision_change_area/syntmeat_laboratory/main_lab)
 "cg" = (
 /obj/effect/decal/cleanable/dust,
+/obj/machinery/light/small/burned{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/glass,
 /turf/simulated/floor/plasteel/white,
 /area/vision_change_area/syntmeat_laboratory/dorms)
 "ci" = (
@@ -527,16 +534,17 @@
 "cN" = (
 /obj/effect/spawner/window/reinforced,
 /obj/machinery/door/poddoor/shutters{
-	id_tag = "checkpoint"
+	id_tag = "checkpoint";
+	layer = 3.35
 	},
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/check_point)
 "cP" = (
-/obj/item/reagent_containers/glass/beaker/vial{
-	pixel_x = 6;
+/obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/glass/beaker/large/meatocreatadone{
+	pixel_x = -3;
 	pixel_y = -6
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel/white{
 	icon_state = "darkgrey"
 	},
@@ -831,7 +839,8 @@
 	layer = 3.1
 	},
 /obj/machinery/door/poddoor/shutters{
-	id_tag = "checkpoint"
+	id_tag = "checkpoint";
+	layer = 3.35
 	},
 /turf/simulated/floor/wood,
 /area/vision_change_area/syntmeat_laboratory/check_point)
@@ -1181,7 +1190,8 @@
 	name = "Virology"
 	},
 /obj/machinery/door/poddoor/shutters{
-	id_tag = "head"
+	id_tag = "head";
+	layer = 3.35
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1204,6 +1214,7 @@
 	pixel_y = 5
 	},
 /obj/item/stamp/ussp,
+/obj/item/pen/multi/fountain,
 /turf/simulated/floor/carpet/red,
 /area/vision_change_area/syntmeat_laboratory/second_lab)
 "gR" = (
@@ -1498,7 +1509,8 @@
 	},
 /obj/machinery/door/poddoor/shutters{
 	dir = 8;
-	id_tag = "viro"
+	id_tag = "viro";
+	layer = 3.35
 	},
 /turf/simulated/floor/plasteel/white,
 /area/vision_change_area/syntmeat_laboratory/virology)
@@ -1508,6 +1520,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/viral_gas,
+/obj/item/reagent_containers/dropper/precision,
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -1638,9 +1651,6 @@
 /area/vision_change_area/syntmeat_laboratory/dorms)
 "kg" = (
 /obj/effect/decal/cleanable/dust,
-/obj/machinery/vending/wallmed{
-	pixel_x = -26
-	},
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/second_lab)
 "kh" = (
@@ -1914,6 +1924,7 @@
 /area/vision_change_area/syntmeat_laboratory/check_point)
 "lN" = (
 /obj/effect/decal/cleanable/blood/old,
+/obj/effect/mob_spawn/human/corpse/hazard_worker,
 /turf/simulated/floor/plasteel{
 	icon_state = "floorgrime"
 	},
@@ -2045,7 +2056,8 @@
 	pixel_x = -4;
 	pixel_y = -4
 	},
-/turf/simulated/floor/plasteel/white,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/virology)
 "mN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2392,10 +2404,6 @@
 /obj/effect/spawner/lootdrop/spentcasing,
 /turf/simulated/floor/wood/oak,
 /area/vision_change_area/syntmeat_laboratory/dorms)
-"oT" = (
-/obj/effect/decal/straw,
-/turf/simulated/floor/grass,
-/area/vision_change_area/syntmeat_laboratory/virology)
 "oZ" = (
 /turf/simulated/floor/plasteel{
 	dir = 1;
@@ -2704,7 +2712,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/poddoor/shutters{
-	id_tag = "checkpoint"
+	id_tag = "checkpoint";
+	layer = 3.35
 	},
 /turf/simulated/floor/wood,
 /area/vision_change_area/syntmeat_laboratory/check_point)
@@ -2904,6 +2913,10 @@
 /area/vision_change_area/syntmeat_laboratory/dorms)
 "sz" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/glass/beaker/vial/mutagen{
+	pixel_x = 7;
+	pixel_y = 10
+	},
 /turf/simulated/floor/plasteel/white{
 	icon_state = "darkgrey"
 	},
@@ -3230,14 +3243,18 @@
 /area/vision_change_area/syntmeat_laboratory/entrence)
 "uH" = (
 /obj/structure/table/glass,
-/obj/item/reagent_containers/dropper,
-/obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/dropper/precision,
 /obj/structure/reagent_dispensers/virusfood{
 	pixel_y = -32
 	},
-/obj/item/reagent_containers/glass/bottle/plasma,
+/obj/item/reagent_containers/glass/bottle/plasma{
+	pixel_y = 4;
+	pixel_x = 11
+	},
 /obj/effect/viral_gas,
+/obj/item/reagent_containers/food/pill/retrovirus{
+	pixel_y = 5;
+	pixel_x = -6
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -3487,6 +3504,7 @@
 	},
 /obj/item/storage/fancy/cigcase,
 /obj/item/reagent_containers/food/drinks/bottle/vodka/badminka,
+/obj/item/stock_parts/cell,
 /obj/item/clothing/under/mercenary,
 /turf/simulated/floor/wood/fancy/parquet,
 /area/vision_change_area/syntmeat_laboratory/second_lab)
@@ -3516,6 +3534,7 @@
 	dir = 8
 	},
 /obj/structure/table,
+/obj/effect/viral_gas,
 /turf/simulated/floor/grass,
 /area/vision_change_area/syntmeat_laboratory/virology)
 "vZ" = (
@@ -3738,7 +3757,8 @@
 /obj/effect/spawner/window/reinforced,
 /obj/machinery/door/poddoor/shutters{
 	dir = 8;
-	id_tag = "viro"
+	id_tag = "viro";
+	layer = 3.35
 	},
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/virology)
@@ -3910,6 +3930,7 @@
 "yO" = (
 /obj/effect/decal/cleanable/dust,
 /obj/effect/viral_gas,
+/obj/item/reagent_containers/food/pill/random_syntmeat_disease,
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/virology)
 "yP" = (
@@ -4075,9 +4096,9 @@
 /area/vision_change_area/syntmeat_laboratory/second_lab)
 "zH" = (
 /obj/effect/decal/cleanable/blood/old,
-/obj/item/card/id/gorky17/officer{
+/obj/item/card/id/gorky17/captain{
 	pixel_x = -5;
-	pixel_y = -5
+	pixel_y = -6
 	},
 /obj/structure/decorative_structures/corpse{
 	icon_state = "corpse_merc_sitting_mask";
@@ -4413,6 +4434,7 @@
 	pixel_x = -7
 	},
 /obj/structure/girder,
+/obj/effect/viral_gas,
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/virology)
 "BQ" = (
@@ -4550,7 +4572,8 @@
 	icon_state = "plant-dead";
 	tag = "plant-dead"
 	},
-/turf/simulated/floor/plasteel/white,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/virology)
 "CK" = (
 /obj/structure/flora/straw_bail,
@@ -4558,7 +4581,9 @@
 /area/vision_change_area/syntmeat_laboratory/kitchen)
 "CM" = (
 /obj/structure/table/wood,
-/obj/item/paper_bin,
+/obj/item/paper_bin{
+	pixel_y = 9
+	},
 /obj/item/pen,
 /obj/structure/sign/poster/contraband/random{
 	pixel_y = -32
@@ -4594,13 +4619,6 @@
 	icon_state = "dark"
 	},
 /area/vision_change_area/syntmeat_laboratory/dorms)
-"CV" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/vending/wallmed{
-	pixel_y = -32
-	},
-/turf/simulated/floor/plasteel/white,
-/area/vision_change_area/syntmeat_laboratory/virology)
 "CW" = (
 /obj/effect/decal/cleanable/dust,
 /turf/simulated/floor/plasteel{
@@ -4639,7 +4657,7 @@
 "Di" = (
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine/longrange/ussp{
-	department = "USSP-2"
+	department = "USSP-laboratory"
 	},
 /turf/simulated/floor/wood/fancy/parquet,
 /area/vision_change_area/syntmeat_laboratory/second_lab)
@@ -4651,7 +4669,9 @@
 	},
 /area/vision_change_area/syntmeat_laboratory/dorms)
 "Dp" = (
-/obj/machinery/ninja_bloodscan_machine,
+/obj/machinery/ninja_bloodscan_machine{
+	desc = "A very complex machine designed to scan blood samples on the smallest level."
+	},
 /obj/structure/table/glass,
 /turf/simulated/floor/plasteel/white{
 	icon_state = "darkgrey"
@@ -4856,7 +4876,10 @@
 /area/vision_change_area/syntmeat_laboratory/entrence)
 "EC" = (
 /obj/structure/table/wood,
-/obj/item/paper_bin,
+/obj/item/paper_bin{
+	pixel_y = 8;
+	pixel_x = -13
+	},
 /obj/structure/sign/poster/contraband/random{
 	pixel_y = 32
 	},
@@ -4955,7 +4978,8 @@
 "Fa" = (
 /obj/effect/spawner/window/reinforced,
 /obj/machinery/door/poddoor/shutters{
-	dir = 2
+	dir = 2;
+	layer = 3.35
 	},
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/virology)
@@ -5172,6 +5196,7 @@
 	},
 /obj/effect/decal/cleanable/dust,
 /obj/effect/viral_gas,
+/obj/item/reagent_containers/food/pill/random_syntmeat_virus,
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -5356,6 +5381,11 @@
 	icon_state = "darkgrey"
 	},
 /area/vision_change_area/syntmeat_laboratory/main_lab)
+"HO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/joke_collection,
+/turf/simulated/floor/plating,
+/area/vision_change_area/syntmeat_laboratory/maintenance)
 "HP" = (
 /obj/effect/decal/cleanable/cobweb2,
 /obj/item/clothing/under/cuban_suit,
@@ -5985,6 +6015,9 @@
 "MG" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/fancy/donut_box/empty,
+/obj/structure/sign/poster/contraband/commando{
+	pixel_x = -32
+	},
 /turf/simulated/floor/wood,
 /area/vision_change_area/syntmeat_laboratory/check_point)
 "MH" = (
@@ -6092,7 +6125,10 @@
 	dir = 4;
 	flipped = 1
 	},
-/obj/item/reagent_containers/food/snacks/bun,
+/obj/item/reagent_containers/food/snacks/baguette{
+	name = "булка";
+	desc = "Хороша с кефиром!"
+	},
 /turf/simulated/floor/wood/fancy/parquet_square,
 /area/vision_change_area/syntmeat_laboratory/kitchen)
 "Nr" = (
@@ -6298,6 +6334,7 @@
 	pixel_x = 24
 	},
 /obj/effect/decal/cleanable/dust,
+/obj/effect/viral_gas,
 /turf/simulated/floor/plasteel/white,
 /area/vision_change_area/syntmeat_laboratory/virology)
 "OO" = (
@@ -6465,6 +6502,12 @@
 	icon_state = "darkredalt"
 	},
 /area/vision_change_area/syntmeat_laboratory/dorms)
+"Qa" = (
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/lighter,
+/turf/simulated/floor/plating,
+/area/vision_change_area/syntmeat_laboratory/second_lab)
 "Qc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/body_bag/biohazard,
@@ -6813,6 +6856,7 @@
 /area/vision_change_area/syntmeat_laboratory/maintenance)
 "St" = (
 /obj/structure/girder,
+/obj/effect/viral_gas,
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/virology)
 "Sv" = (
@@ -6821,9 +6865,6 @@
 	},
 /area/vision_change_area/syntmeat_laboratory/check_point)
 "Sz" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
 /obj/structure/sign/poster/contraband/random{
 	pixel_y = 32
 	},
@@ -7083,6 +7124,11 @@
 /turf/simulated/floor/wood/fancy/parquet,
 /area/vision_change_area/syntmeat_laboratory/second_lab)
 "Ug" = (
+/obj/item/reagent_containers/glass/beaker/vial{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/paper/crumpled/syntmeat_laboratory/meatocreatadone,
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/second_lab)
 "Uj" = (
@@ -7134,7 +7180,6 @@
 /obj/item/stack/sheet/metal{
 	amount = 20
 	},
-/obj/item/stack/cable_coil/orange,
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -7173,7 +7218,9 @@
 /area/ruin/space/test)
 "UP" = (
 /obj/structure/table/glass,
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagentgrinder{
+	pixel_y = 8
+	},
 /obj/effect/viral_gas,
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -7184,6 +7231,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/effect/viral_gas,
 /turf/simulated/floor/plasteel/white,
 /area/vision_change_area/syntmeat_laboratory/virology)
 "UT" = (
@@ -7364,7 +7412,8 @@
 /area/vision_change_area/syntmeat_laboratory/kitchen)
 "VY" = (
 /obj/machinery/ninja_bloodscan_machine{
-	pixel_x = -2
+	pixel_x = -2;
+	desc = "A very complex machine designed to scan blood samples on the smallest level."
 	},
 /obj/structure/table/glass,
 /turf/simulated/floor/plasteel/white{
@@ -7532,7 +7581,8 @@
 	dir = 1
 	},
 /obj/machinery/door/poddoor/shutters{
-	dir = 2
+	dir = 2;
+	layer = 3.35
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -7586,7 +7636,7 @@
 /obj/item/reagent_containers/food/snacks/candy/mre,
 /obj/item/reagent_containers/food/snacks/candy/mre,
 /obj/item/reagent_containers/food/snacks/candy/mre,
-/obj/effect/mob_spawn/human/corpse/hazard_worker,
+/obj/item/stock_parts/cell,
 /turf/simulated/floor/plasteel{
 	icon_state = "floorgrime"
 	},
@@ -7955,9 +8005,7 @@
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_y = 19
 	},
-/turf/simulated/floor/plasteel{
-	icon_state = "dark"
-	},
+/turf/simulated/floor/engine,
 /area/vision_change_area/syntmeat_laboratory/second_lab)
 "Zj" = (
 /obj/effect/decal/cleanable/dust,
@@ -8063,13 +8111,12 @@
 	},
 /area/vision_change_area/syntmeat_laboratory/main_lab)
 "ZQ" = (
-/obj/effect/decal/straw/edge{
-	dir = 9
+/obj/item/reagent_containers/glass/beaker/vial{
+	pixel_x = 6;
+	pixel_y = -6
 	},
-/obj/structure/table,
-/obj/item/reagent_containers/spray/cleaner,
-/turf/simulated/floor/grass,
-/area/vision_change_area/syntmeat_laboratory/virology)
+/turf/simulated/floor/plating,
+/area/vision_change_area/syntmeat_laboratory/second_lab)
 "ZS" = (
 /mob/living/simple_animal/cockroach{
 	faction = list("hostile")
@@ -10367,7 +10414,7 @@ Yd
 Mp
 Ug
 am
-sz
+cP
 Mp
 Yd
 WE
@@ -10469,7 +10516,7 @@ kv
 eW
 oz
 CO
-cP
+sz
 GE
 og
 Cv
@@ -10569,7 +10616,7 @@ WE
 es
 kH
 EH
-FH
+Qa
 Yk
 oz
 XE
@@ -10671,7 +10718,7 @@ WE
 og
 Cv
 YA
-Ug
+ZQ
 Mh
 Ga
 be
@@ -10887,7 +10934,7 @@ kE
 jC
 jB
 WE
-Lw
+NT
 Lw
 Lw
 Lw
@@ -12127,7 +12174,7 @@ NT
 tI
 Fg
 tI
-DU
+HO
 tI
 tI
 tI
@@ -14176,11 +14223,11 @@ Lw
 Lw
 NT
 NT
-wN
 qw
+wN
 uM
 jo
-qw
+wN
 qw
 qw
 NT
@@ -14279,10 +14326,10 @@ NT
 NT
 Lw
 Lw
+wN
 qw
 qw
-qw
-qw
+wN
 NT
 NT
 NT
@@ -14458,7 +14505,7 @@ sJ
 fi
 wY
 nY
-CV
+mp
 Ay
 oZ
 rO
@@ -14660,7 +14707,7 @@ yc
 vb
 ON
 ar
-mp
+MO
 mp
 Wx
 Ay
@@ -15055,7 +15102,7 @@ Lw
 Lw
 Ay
 aa
-oT
+Sp
 ju
 xu
 BP
@@ -15159,7 +15206,7 @@ Ay
 fC
 Nu
 vW
-ZQ
+gR
 St
 uQ
 wY

@@ -1,8 +1,6 @@
 /area/vision_change_area/syntmeat_laboratory
 	poweralm = FALSE
 	report_alerts = FALSE
-	requires_power = TRUE
-	has_gravity = TRUE
 	there_can_be_many = TRUE
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	ambientsounds = list('sound/ambience/spooky/chill.ogg',\
@@ -33,13 +31,10 @@
 						'sound/ambience/spooky/burning_terror.ogg')
 	max_ambience_cooldown = 60 SECONDS
 
-/area/ruin/space/test ////////////////////////////не забыть удалить      ////// узнать какая цифра stat является BROKEN
+/area/ruin/space/test ////////////////////////////не забыть удалить
 	name = "Test area" /////////////////////////////////отбалансить хп и шанс отрубания у гориллы; отбалансить количество мясных зомбей и их хп/урон, скорость
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED //////////////////// добавить таблетку с полезным вирусом / рандомные полезные вирусы в холодос вирусологии
-												///////// создать новые консоли/переписать прок для оверлеев под мапперские скины
-		///// добавить объект "1000 и 1 андекдот"
-///////// при использовании будет выпадать случайное число от 1 до 1001 с текстом
-//////////"Вы прочитали анекдот [номер анекдота]" форс смеха/улыбки у игрокаы
+	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED ////////////////////
+												///////// создать новые консоли
 
 /area/vision_change_area/syntmeat_laboratory/main_lab
 	name = "Main laboratory"
@@ -116,7 +111,7 @@
 			INVOKE_ASYNC(P, TYPE_PROC_REF(/obj/machinery/door, close))
 	battle = TRUE
 	for(var/mob/trapped_one as anything in naughty_mobs)
-		to_chat(trapped_one, span_danger("НЕ ЗНАЮ ЧТО ТУТ БУДЕТ НАПИСАНО НО ЯВНО ЧТО-ТО БУДЕТ!!!!"))
+		to_chat(trapped_one, span_danger("Обнаружены неизвестные формы жизни! Активирован протокол: КАРАНТИН!"))
 
 /area/vision_change_area/syntmeat_laboratory/main_lab/proc/ready_or_not()
 	SIGNAL_HANDLER
@@ -328,7 +323,7 @@
 		our_bomb.activate()
 		for(var/obj/machinery/power/apc/propaganda in GLOB.apcs)
 			if(propaganda.z == our_bomb.z && get_dist(get_turf(our_bomb), propaganda) < 50)
-				playsound(propaganda, 'sound/effects/self_destruct_17sec.ogg', 100)
+				playsound(propaganda, 'sound/effects/alarm_30sec.ogg', 100)
 
 
 #define NONACTIVE_STATE "hatch"
@@ -338,7 +333,7 @@
 
 /obj/machinery/syndicatebomb/syntmeat
 	name = "self destruct device"
-	desc = "High explosive. Don't touch." ///// звук для сирены 'sound/effects/alarm_30sec.ogg'
+	desc = "High explosive. Don't touch."
 	icon = 'icons/obj/machines/nuke_terminal.dmi'
 	icon_state = "nuclearbomb_hatch"
 	minimum_timer = 30
@@ -458,15 +453,21 @@
 /obj/item/reagent_containers/glass/beaker/large/meatocreatadone
 	list_reagents = list("meatocreatadone" = 100)
 
+/obj/item/reagent_containers/glass/beaker/vial/mutagen
+	list_reagents = list("mutagen" = 25)
+	icon_state = "vial-green"
+
 ///////////////////////
 ////////////// GASEOUS VIRUS
 ///////////////////////
 
 /obj/effect/viral_gas
 	name = "cloud of gas"
-	icon_state = "mustard"
+	icon = 'icons/effects/tile_effects.dmi'
+	icon_state = "sleeping_agent"
 	layer = ABOVE_MOB_LAYER
 	alpha = 180
+	color = "#024d0cc2"
 	var/virus = /datum/disease/virus/cadaver
 	var/chance_of_infection = 20
 
@@ -482,8 +483,13 @@
 	. = ..()
 	qdel(src)
 
+///////////////////////
+////////////// VIRUS PILL
+///////////////////////
+
 /obj/item/reagent_containers/food/pill/random_syntmeat_virus
 	spawned_disease = /datum/disease/virus/advance/syntmeat_random
+	disease_amount = 0.1
 
 /datum/disease/virus/advance/syntmeat_random
 	var/static/list/random_symptoms = list(
@@ -513,27 +519,72 @@
 	..()
 	name = capitalize(pick(GLOB.adjectives)) + " " + capitalize(pick(GLOB.nouns + GLOB.verbs))
 
+/obj/item/reagent_containers/food/pill/random_syntmeat_disease
+	disease_amount = 0.1
 
-/obj/item/reagent_containers/food/pill/jungle_fever
-	spawned_disease = /datum/disease/virus/transformation/jungle_fever
+/obj/item/reagent_containers/food/pill/random_syntmeat_disease/New()
+	spawned_disease = pick(list(
+		/datum/disease/virus/transformation/jungle_fever,
+		/datum/disease/virus/anxiety,
+		/datum/disease/virus/beesease,
+		/datum/disease/food_poisoning,
+		/datum/disease/vampire,
+		/datum/disease/virus/fake_gbs,
+		/datum/disease/virus/pierrot_throat,
+		/datum/disease/virus/advance/preset/pre_loyalty
+	))
+	..()
 
-/obj/item/reagent_containers/food/pill/anxiety
-	spawned_disease = /datum/disease/virus/anxiety
+///////////////////////
+////////////// PAPRERS
+///////////////////////
 
-/obj/item/reagent_containers/food/pill/beesease
-	spawned_disease = /datum/disease/virus/beesease
+/obj/item/paper/crumpled/syntmeat_laboratory
+	language = LANGUAGE_NEO_RUSSIAN
 
-/obj/item/reagent_containers/food/pill/food_poisoning
-	spawned_disease = /datum/disease/food_poisoning
+/obj/item/paper/crumpled/syntmeat_laboratory/virus
+	name = "Новые вирусы и паталогии"
+	info = "<p>Разработка синтетического вируса под кодом █████████████ ведется с переменным успехом. Вирус приобрел некотролируемую форму развития и влияния на геном,\
+	в текущем виде он более подходит для боевых задач, нежели для развития синтетических форм. Несмотря на свою смертоносность: █████████████ приподнес некоторые полезные открытия. \
+	В частности мы смогли создать из мясных макак более мускулистую и сообразительную... назовем это \"гориллой\". Горилла имеет более выраженный интеллект, \
+	однако пока что не поддается дрессировке; но я верю, что мы сможем использовать её в качестве боевой единицы.</p>"
 
-/obj/item/reagent_containers/food/pill/vampire
-	spawned_disease = /datum/disease/vampire
+/obj/item/paper/crumpled/syntmeat_laboratory/meatocreatadone
+	name = "Синтетическая плоть"
+	info = "<p>После стабилизации meatocreatadone можно использовать не только для создания мясных макак, но и для быстрого взращивания мясных тканей: достаточно смешать \
+	meatocreatadone с кровью в пропорции 1 к 1.<br /> \
+	Последующие эксперементы по модификации реагента пока что не дают явных успехов. Однако, кажется я приближаюсь к открытию новой реакции на mutagen. \
+	Было замечено, что при нагреве meatocreatadone начинает образовывать мышичные ткани, но они отличны от синтетической плоти. Пока что я не приблизился к \
+	нужной формуле... Я уверен - еще чуть чуть и будет прорыв! Пока я понял одно: чем больше мутагена и горячее состав - тем быстрее образуются ткани.</p>"
 
-/obj/item/reagent_containers/food/pill/fake_gbs
-	spawned_disease = /datum/disease/virus/fake_gbs
+/obj/item/joke_collection
+	name = "1000 и 1 анекдот"
+	desc = "Пронумерованный сборник лучших анекдотов и юморесок за 23-ий век."
+	icon = 'icons/obj/library.dmi'
+	icon_state = "bookHacking"
+	throw_speed = 1
+	throw_range = 10
+	force = 3
+	resistance_flags = FLAMMABLE
+	attack_verb = list("bashed", "whacked")
+	drop_sound = 'sound/items/handling/book_drop.ogg'
+	pickup_sound = 'sound/items/handling/book_pickup.ogg'
 
-/obj/item/reagent_containers/food/pill/pierrot_throat
-	spawned_disease = /datum/disease/virus/pierrot_throat
+/obj/item/joke_collection/attack_self(mob/living/user)
+	if!(GLOB.all_languages[LANGUAGE_GALACTIC_COMMON] in user.languages)
+		to_chat(user, "<span class='notice'>Вы видите какие-то символы, но не представляете, что они значат.</span>")
+		return
+	if(user.has_vision())
+		if(do_after(user, 1 SECONDS, target = user))
+			to_chat(user, "<span class='notice'>Вы прочли анекдот под номером [rand(1,1001)]!</span>")
+			if(prob(40))
+				user.emote(pick("laugh", "giggle", "smile"))
+			else if(user && !(CLUMSY in user.mutations) && prob(15))
+				user.adjustBrainLoss(rand(3,5))
+		else
+			to_chat(user, "<span class='notice'>Вы не успели дочитать анекдот.</span>")
+			return
+	else
+		to_chat(user, "<span class='notice'>Вы ощупали предмет, скорее всего это дешёвая книга.</span>")
+		return
 
-/obj/item/reagent_containers/food/pill/pre_loyalty
-	spawned_disease = /datum/disease/virus/advance/preset/pre_loyalty
