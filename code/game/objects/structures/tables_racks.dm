@@ -39,6 +39,9 @@
 	/// Can this table be flipped?
 	var/can_be_flipped = TRUE
 
+/obj/structure/table/flipped
+	flipped = TRUE
+	icon_state = "tableflip0"
 
 /obj/structure/table/Initialize(mapload)
 	. = ..()
@@ -519,6 +522,10 @@
 /obj/structure/table/wood/narsie_act(total_override = TRUE)
 	if(!total_override)
 		..()
+
+/obj/structure/table/wood/flipped
+	flipped = TRUE
+	icon_state = "woodflip0"
 
 /obj/structure/table/wood/poker //No specialties, Just a mapping object.
 	name = "gambling table"

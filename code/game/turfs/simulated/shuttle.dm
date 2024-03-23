@@ -16,6 +16,9 @@
 /turf/simulated/wall/shuttle/ricochet
 	flags_2 = CHECK_RICOCHET_2
 
+/turf/simulated/wall/shuttle/ricochet/gray
+	icon = 'icons/turf/walls/shuttle/gray_shuttle_wall.dmi'
+
 /turf/simulated/wall/shuttle/dismantle_wall(devastated = 0, explode = 0)
 	return
 
@@ -112,21 +115,37 @@
 	smooth = SMOOTH_MORE
 	icon_state = "shuttle_nd"
 
+/turf/simulated/wall/shuttle/ricochet/nodiagonal/gray
+	icon = 'icons/turf/walls/shuttle/gray_shuttle_wall.dmi'
+
 /turf/simulated/wall/shuttle/ricochet/nosmooth
 	icon_state = "shuttle_ns"
 	smooth = SMOOTH_FALSE
 
+/turf/simulated/wall/shuttle/ricochet/nosmooth/gray
+	icon = 'icons/turf/walls/shuttle/gray_shuttle_wall.dmi'
+
 /turf/simulated/wall/shuttle/ricochet/onlyselfsmooth
 	icon_state = "shuttle_ss"
-	canSmoothWith = list(/turf/simulated/wall/shuttle)
+	canSmoothWith = list(/turf/simulated/wall/shuttle/ricochet)
+
+/turf/simulated/wall/shuttle/ricochet/onlyselfsmooth/gray
+	icon = 'icons/turf/walls/shuttle/gray_shuttle_wall.dmi'
+	canSmoothWith = list(/turf/simulated/wall/shuttle/ricochet/gray)
 
 /turf/simulated/wall/shuttle/ricochet/onlyselfsmooth/nodiagonal
 	smooth = SMOOTH_MORE
 	icon_state = "shuttle_ndss"
 
+/turf/simulated/wall/shuttle/ricochet/onlyselfsmooth/nodiagonal/gray
+	icon = 'icons/turf/walls/shuttle/gray_shuttle_wall.dmi'
+
 /turf/simulated/wall/shuttle/ricochet/overspace
 	icon_state = "overspace"
 	fixed_underlay = list("space"=1)
+
+/turf/simulated/wall/shuttle/ricochet/overspace/gray
+	icon = 'icons/turf/walls/shuttle/gray_shuttle_wall.dmi'
 
 // sub-type to be used for interior shuttle walls
 // won't get an underlay of the destination turf on shuttle move
@@ -165,6 +184,9 @@
 	var/underlay_floor_icon = null
 	var/underlay_floor_icon_state = null
 	var/underlay_floor_dir = 2
+
+/turf/simulated/wall/shuttle/ricochet/nosmooth/interior/gray
+	icon = 'icons/turf/walls/shuttle/gray_shuttle_wall.dmi'
 
 /turf/simulated/wall/shuttle/ricochet/nosmooth/interior/Initialize()
 	..()

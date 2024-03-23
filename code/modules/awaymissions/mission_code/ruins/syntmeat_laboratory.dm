@@ -29,19 +29,20 @@
 						'sound/ambience/spooky/horror_3.ogg',\
 						'sound/ambience/spooky/ominous_loop1.ogg',\
 						'sound/ambience/spooky/burning_terror.ogg')
-	max_ambience_cooldown = 60 SECONDS
+
+	min_ambience_cooldown = 15 SECONDS
+	max_ambience_cooldown = 30 SECONDS
 
 /area/ruin/space/test ////////////////////////////не забыть удалить
 	name = "Test area" /////////////////////////////////отбалансить хп и шанс отрубания у гориллы; отбалансить количество мясных зомбей и их хп/урон, скорость
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED ////////////////////
-												///////// создать новые консоли
 
 /area/vision_change_area/syntmeat_laboratory/main_lab
 	name = "Main laboratory"
 	icon_state = "away1"
 	var/battle = FALSE
 	var/cooldown = FALSE
-	var/list/naughty_mobs
+	var/list/intruders_list
 	var/mob/living/simple_animal/hostile/skinner/boss
 
 /area/vision_change_area/syntmeat_laboratory/entrence
@@ -100,8 +101,12 @@
 	name = "Self destruct"
 	icon_state = "away11"
 	var/obj/machinery/syndicatebomb/our_bomb
-	var/derp_has_fallen = FALSE //remove this?
-	var/safe_faction = list()
+	var/derp_has_fallen = FALSE //remove this? ///////////// убрать
+	var/safe_faction = list() ///////////// убрать
+
+///////////////////////
+////////////// BOSS AREA
+///////////////////////
 
 /area/vision_change_area/syntmeat_laboratory/main_lab/proc/BlockBlastDoors()
 	if(battle)
@@ -110,16 +115,16 @@
 		if(P.id_tag == "[name]" && !P.density && P.z == z && !P.operating)
 			INVOKE_ASYNC(P, TYPE_PROC_REF(/obj/machinery/door, close))
 	battle = TRUE
-	for(var/mob/trapped_one as anything in naughty_mobs)
+	for(var/mob/trapped_one as anything in intruders_list)
 		to_chat(trapped_one, span_danger("Обнаружены неизвестные формы жизни! Активирован протокол: КАРАНТИН!"))
 
 /area/vision_change_area/syntmeat_laboratory/main_lab/proc/ready_or_not()
 	SIGNAL_HANDLER
-	for(var/mob/living/naughty as anything in naughty_mobs)
-		if(naughty.is_dead() || !boss || boss.is_dead() || !naughty.mind)
-			remove_from_naughty(naughty)
+	for(var/mob/living/intruders as anything in intruders_list)
+		if(intruders.is_dead() || !boss || boss.is_dead() || !intruders.mind)
+			remove_from_intruders(intruders)
 
-	if(length(naughty_mobs))
+	if(length(intruders_list))
 		BlockBlastDoors()
 
 /area/vision_change_area/syntmeat_laboratory/main_lab/Entered(atom/movable/arrived)
@@ -135,9 +140,9 @@
 
 	if(istype(arrived, /obj/structure/closet))
 		for(var/mob/living/living in arrived)
-			add_to_naughty(living)
+			add_to_intruders(living)
 
-	add_to_naughty(living_mob)
+	add_to_intruders(living_mob)
 
 	if(cooldown)
 		return
@@ -157,24 +162,24 @@
 
 	if(istype(departed, /obj/structure/closet))
 		for(var/mob/living/living in departed)
-			remove_from_naughty(living)
+			remove_from_intruders(living)
 
-	remove_from_naughty(living_mob)
+	remove_from_intruders(living_mob)
 
-/area/vision_change_area/syntmeat_laboratory/main_lab/proc/add_to_naughty(mob/living/living_mob)
+/area/vision_change_area/syntmeat_laboratory/main_lab/proc/add_to_intruders(mob/living/living_mob)
 	if(!istype(living_mob))
 		return FALSE
 	if(!living_mob.mind || living_mob.is_dead())
 		return FALSE
-	LAZYADD(naughty_mobs, living_mob)
+	LAZYADD(intruders_list, living_mob)
 	RegisterSignal(living_mob, COMSIG_MOB_DEATH, PROC_REF(ready_or_not))
 	return TRUE
 
-/area/vision_change_area/syntmeat_laboratory/main_lab/proc/remove_from_naughty(mob/living/living_mob)
+/area/vision_change_area/syntmeat_laboratory/main_lab/proc/remove_from_intruders(mob/living/living_mob)
 	if(!istype(living_mob))
 		return FALSE
-	if(living_mob in naughty_mobs)
-		naughty_mobs.Remove(living_mob)
+	if(living_mob in intruders_list)
+		intruders_list.Remove(living_mob)
 		UnregisterSignal(living_mob, COMSIG_MOB_DEATH)
 		return TRUE
 
@@ -237,7 +242,7 @@
 		bossfight_area?.ready_or_not()
 
 /mob/living/simple_animal/hostile/skinner/stage_1		//stage 1: weak melee
-	desc = "GET THE FAT DERP!"
+	desc = "PERISH OR DIE!"
 	icon = 'icons/mob/simple_human.dmi'
 	icon_state = "skinner"
 	icon_living = "skinner"
@@ -245,7 +250,7 @@
 	maxHealth = 50
 	health = 50
 	next_stage = /mob/living/simple_animal/hostile/skinner/stage_2
-	death_message = "<span class='danger'>HO HO HO! YOU THOUGHT IT WOULD BE THIS EASY?!?</span>"
+	death_message = "<span class='danger'>I SMELL YOUR FLESH! PREPARE TO DIE!</span>"
 	melee_damage_lower = 10
 	melee_damage_upper = 20
 
@@ -254,13 +259,13 @@
 	next_stage = /mob/living/simple_animal/hostile/skinner/stage_2/without_area
 
 /mob/living/simple_animal/hostile/skinner/stage_2		//stage 2: strong melee
-	desc = "GET THE FAT DERP AGAIN!"
+	desc = "PERISH OR DIE AGAIN!"
 	icon = 'icons/mob/simple_human.dmi'
 	icon_state = "skinner_transform"
 	icon_living = "skinner_transform"
 	icon_dead = "skinner_transform"
-	death_message = "<span class='danger'>YOU'VE BEEN VERY NAUGHTY! PREPARE TO DIE!</span>"
-	maxHealth = 200		//DID YOU REALLY BELIEVE IT WOULD BE THIS EASY!??!! /// it really easy
+	death_message = "ROOOOAAA RAAA!"
+	maxHealth = 200
 	health = 200
 	melee_damage_upper = 30
 	sharp_attack = TRUE
@@ -314,17 +319,16 @@
 ////////////// SELF DESTRUCT
 ///////////////////////
 
-/area/vision_change_area/syntmeat_laboratory/self_destruct/Entered(mob/living/bourgeois)
+/area/vision_change_area/syntmeat_laboratory/self_destruct/Entered(mob/living/interloper)
 	. = ..()
-	if(!derp_has_fallen && istype(bourgeois) && !faction_check(bourgeois.faction, safe_faction))
+	if(!derp_has_fallen && istype(interloper) && !faction_check(interloper.faction, safe_faction))
 		derp_has_fallen = TRUE
-		add_game_logs("[key_name(bourgeois)] entered [src], without authorization. Self-destruction mechanism activated")
-		our_bomb.payload?.adminlog = "[our_bomb] detonated in [src]. Self-destruction activated by [key_name(bourgeois)]!"
+		add_game_logs("[key_name(interloper)] entered [src], without authorization. Self-destruction mechanism activated")
+		our_bomb.payload?.adminlog = "[our_bomb] detonated in [src]. Self-destruction activated by [key_name(interloper)]!"
 		our_bomb.activate()
-		for(var/obj/machinery/power/apc/propaganda in GLOB.apcs)
-			if(propaganda.z == our_bomb.z && get_dist(get_turf(our_bomb), propaganda) < 50)
-				playsound(propaganda, 'sound/effects/alarm_30sec.ogg', 100)
-
+		for(var/obj/machinery/power/apc/alarm in GLOB.apcs)
+			if(alarm.z == our_bomb.z && get_dist(get_turf(our_bomb), alarm) < 50)
+				playsound(alarm, 'sound/effects/alarm_30sec.ogg', 100)
 
 #define NONACTIVE_STATE "hatch"
 #define ACTIVATING_STATE "unfloored"
@@ -383,16 +387,15 @@
 #undef IDLE_STATE
 
 /obj/item/bombcore/syntmeat
-	range_heavy = 20
-	range_medium = 35
-	range_light = 45
-	range_flame = 30
+	range_heavy = 25
+	range_medium = 30
+	range_light = 35
 	admin_log = TRUE
 	ignorecap = TRUE
 	special_deletes = TRUE
 
 /obj/item/bombcore/syntmeat/delete_unnecessary(center)
-	for(var/atom/A as anything in range(35, center))
+	for(var/atom/A as anything in range(20, center))
 		if(isliving(A))
 			var/mob/living/mob = A
 			mob.gib()
@@ -443,12 +446,12 @@
 	data = list("diseases" = null)
 	name = "Meatocreatadone"
 	id = "meatocreatadone"
-	description = "A plasma mixture with almost magical healing powers. Its main limitation is that the targets body temperature must be under 265K for it to metabolise correctly."
+	description = "Вязкая тянучая масса с едким и тошнотворным запахом. Если все же принюхаться, то можно уловить нотки тухлого мяса."
 	reagent_state = LIQUID
 	color = "#4e0303"
 	taste_description = "bitterness"
 	can_synth = FALSE
-	heart_rate_stop = 0  ////// нужно ли это логгировать?
+	heart_rate_increase = 1
 
 /obj/item/reagent_containers/glass/beaker/large/meatocreatadone
 	list_reagents = list("meatocreatadone" = 100)
@@ -462,11 +465,11 @@
 ///////////////////////
 
 /obj/effect/viral_gas
-	name = "cloud of gas"
+	name = "stinky air"
 	icon = 'icons/effects/tile_effects.dmi'
 	icon_state = "sleeping_agent"
-	layer = ABOVE_MOB_LAYER
-	alpha = 180
+	layer = FLY_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	color = "#024d0cc2"
 	var/virus = /datum/disease/virus/cadaver
 	var/chance_of_infection = 20
@@ -474,6 +477,7 @@
 /obj/effect/viral_gas/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/caltrop/virus, probability = chance_of_infection, flags = CALTROP_BYPASS_WALKERS, virus_type = virus)
+	alpha = 40
 
 /obj/effect/viral_gas/is_cleanable()
 	if(!QDELETED(src))
@@ -571,7 +575,7 @@
 	pickup_sound = 'sound/items/handling/book_pickup.ogg'
 
 /obj/item/joke_collection/attack_self(mob/living/user)
-	if!(GLOB.all_languages[LANGUAGE_GALACTIC_COMMON] in user.languages)
+	if(!(GLOB.all_languages[LANGUAGE_GALACTIC_COMMON] in user.languages))
 		to_chat(user, "<span class='notice'>Вы видите какие-то символы, но не представляете, что они значат.</span>")
 		return
 	if(user.has_vision())

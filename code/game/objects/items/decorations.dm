@@ -528,6 +528,24 @@
 	density = 0
 
 /obj/structure/decorative_structures/centrifuge/Destroy()
+	new /obj/item/stack/sheet/metal{amount = 5}(get_turf(src))
+	new /obj/item/stack/cable_coil/random{amount = 5}(get_turf(src))
+	new /obj/item/shard(get_turf(src))
+	..()
+
+/obj/structure/decorative_structures/chemanalyzer
+	name = "chemical analyzer"
+	desc = "A chemical analyzer capable of recognizing the smallest atoms."
+	icon = 'icons/obj/chemical.dmi'
+	icon_state = "mixer1"
+	max_integrity = 150
+	anchored = 1
+	density = 0
+
+/obj/structure/decorative_structures/chemanalyzer/broken
+	icon_state = "mixer1_b"
+
+/obj/structure/decorative_structures/chemanalyzer/Destroy()
 	new /obj/effect/decal/cleanable/glass(get_turf(src))
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	new /obj/item/shard(get_turf(src))

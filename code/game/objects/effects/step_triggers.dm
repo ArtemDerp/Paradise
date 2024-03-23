@@ -197,3 +197,17 @@
 	volume = 200
 	happens_once = 1
 	extra_range = 4
+
+/obj/effect/step_trigger/sound_effect/scary_moan
+	happens_once = 1
+	sound = list('sound/ambience/spooky/moan1.ogg')
+
+/obj/effect/step_trigger/sound_effect/scream_female
+	happens_once = 1
+	triggerer_only = 1
+	sound = list('sound/ambience/spooky/scream1.ogg')
+
+/obj/effect/step_trigger/sound_effect/scary_breath
+	happens_once = 1
+	triggerer_only = 1
+	sound = list('sound/ambience/spooky/scared_breathing1.ogg', 'sound/ambience/spooky/scared_breathing2.ogg', 'sound/ambience/spooky/scared_sob1.ogg', 'sound/ambience/spooky/scared_sob2.ogg')
