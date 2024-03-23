@@ -101,8 +101,7 @@
 	name = "Self destruct"
 	icon_state = "away11"
 	var/obj/machinery/syndicatebomb/our_bomb
-	var/derp_has_fallen = FALSE //remove this? ///////////// убрать
-	var/safe_faction = list() ///////////// убрать
+	var/sd_triggered = FALSE
 
 ///////////////////////
 ////////////// BOSS AREA
@@ -321,9 +320,9 @@
 
 /area/vision_change_area/syntmeat_laboratory/self_destruct/Entered(mob/living/interloper)
 	. = ..()
-	if(!derp_has_fallen && istype(interloper) && !faction_check(interloper.faction, safe_faction))
-		derp_has_fallen = TRUE
-		add_game_logs("[key_name(interloper)] entered [src], without authorization. Self-destruction mechanism activated")
+	if(!sd_triggered && istype(interloper))
+		sd_triggered = TRUE
+		add_game_logs("[key_name(interloper)] entered [src]. Self-destruction mechanism activated")
 		our_bomb.payload?.adminlog = "[our_bomb] detonated in [src]. Self-destruction activated by [key_name(interloper)]!"
 		our_bomb.activate()
 		for(var/obj/machinery/power/apc/alarm in GLOB.apcs)
@@ -351,7 +350,7 @@
 
 /obj/machinery/syndicatebomb/syntmeat/Initialize(mapload) // derp, place it in target area
 	. = ..()
-	var/area/vision_change_area/syntmeat_laboratory/self_destruct/our_area = get_area(src)
+	var/area/vision_change_area/syntmeat_laboratory/self_destruct/our_area = locate() in GLOB.all_areas
 	if(istype(our_area))
 		our_area.our_bomb = src
 
