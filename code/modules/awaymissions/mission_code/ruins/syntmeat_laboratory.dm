@@ -111,7 +111,7 @@
 	if(battle)
 		return
 	for(var/obj/machinery/door/poddoor/impassable/P in GLOB.airlocks)
-		if(P.id_tag == "[name]" && !P.density && P.z == z && !P.operating)
+		if(P.id_tag == "[name]" && P.z == z)
 			INVOKE_ASYNC(P, TYPE_PROC_REF(/obj/machinery/door, close))
 	battle = TRUE
 	for(var/mob/trapped_one as anything in intruders_list)
@@ -386,9 +386,9 @@
 #undef IDLE_STATE
 
 /obj/item/bombcore/syntmeat
-	range_heavy = 25
-	range_medium = 30
-	range_light = 35
+	range_heavy = 30
+	range_medium = 35
+	range_light = 40
 	admin_log = TRUE
 	ignorecap = TRUE
 	special_deletes = TRUE

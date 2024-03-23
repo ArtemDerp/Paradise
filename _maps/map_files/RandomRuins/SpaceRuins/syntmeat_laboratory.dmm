@@ -490,7 +490,6 @@
 /area/vision_change_area/syntmeat_laboratory/virology)
 "cu" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/baseturf_helper/plating,
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
@@ -561,10 +560,13 @@
 /turf/simulated/floor/plasteel,
 /area/vision_change_area/syntmeat_laboratory/main_lab)
 "cV" = (
-/obj/structure/closet/emcloset,
 /obj/effect/decal/cleanable/dust,
 /obj/machinery/light/burned{
 	dir = 8
+	},
+/obj/structure/closet{
+	icon_state = "emergency";
+	opened = 1
 	},
 /turf/simulated/floor/plasteel/white{
 	icon_state = "whitehall";
@@ -824,7 +826,6 @@
 /area/vision_change_area/syntmeat_laboratory/kitchen)
 "eO" = (
 /obj/effect/decal/cleanable/dust,
-/obj/effect/baseturf_helper/plating,
 /obj/effect/viral_gas,
 /turf/simulated/floor/plasteel/white,
 /area/vision_change_area/syntmeat_laboratory/virology)
@@ -992,14 +993,6 @@
 /obj/effect/viral_gas,
 /turf/simulated/floor/plasteel/white,
 /area/vision_change_area/syntmeat_laboratory/virology)
-"fP" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/baseturf_helper/plating,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plasteel/black,
-/area/vision_change_area/syntmeat_laboratory/check_point)
 "fW" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_y = 16;
@@ -1760,6 +1753,11 @@
 /area/vision_change_area/syntmeat_laboratory/kitchen)
 "kX" = (
 /obj/effect/decal/cleanable/blood/old,
+/obj/structure/closet{
+	icon_state = "emergency";
+	opened = 1
+	},
+/obj/item/flashlight/flare,
 /turf/simulated/floor/plasteel/white,
 /area/vision_change_area/syntmeat_laboratory/main_lab)
 "kY" = (
@@ -2991,6 +2989,7 @@
 /area/vision_change_area/syntmeat_laboratory/second_lab)
 "tR" = (
 /obj/effect/decal/cleanable/dust,
+/obj/item/tank/internals/emergency_oxygen/empty,
 /turf/simulated/floor/plasteel/white,
 /area/vision_change_area/syntmeat_laboratory/main_lab)
 "tS" = (
@@ -3063,7 +3062,6 @@
 	faction = list("hostile")
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/baseturf_helper/plating,
 /obj/effect/viral_gas,
 /turf/simulated/floor/wood/fancy/parquet_square/broken,
 /area/vision_change_area/syntmeat_laboratory/kitchen)
@@ -4618,11 +4616,6 @@
 /obj/item/clothing/head/beaverhat,
 /turf/simulated/floor/wood,
 /area/vision_change_area/syntmeat_laboratory/check_point)
-"Ea" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/baseturf_helper/plating,
-/turf/simulated/floor/plasteel/black,
-/area/vision_change_area/syntmeat_laboratory/entrence)
 "Eb" = (
 /obj/machinery/computer/old_frame/alldir/wide/broken/left{
 	dir = 4
@@ -4644,7 +4637,6 @@
 	faction = list("hostile")
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/baseturf_helper/plating,
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
@@ -4839,12 +4831,10 @@
 /turf/simulated/floor/plasteel,
 /area/vision_change_area/syntmeat_laboratory/main_lab)
 "Fl" = (
-/obj/structure/closet/emcloset,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/burned{
 	dir = 8
 	},
-/obj/item/flashlight/flare,
 /turf/simulated/floor/plasteel/white/side{
 	dir = 4
 	},
@@ -5207,7 +5197,6 @@
 /area/vision_change_area/syntmeat_laboratory/dorms)
 "HT" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/baseturf_helper/plating,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -5288,9 +5277,12 @@
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/maintenance)
 "Iv" = (
-/obj/structure/closet/l3closet/virology,
-/obj/item/clothing/mask/gas/transparent,
 /obj/effect/decal/cleanable/dust,
+/obj/structure/closet{
+	icon_state = "bio_virology";
+	opened = 1
+	},
+/obj/item/clothing/suit/bio_suit,
 /turf/simulated/floor/plasteel/white/corner{
 	dir = 4
 	},
@@ -5471,7 +5463,6 @@
 /turf/simulated/floor/plasteel/darkgrey,
 /area/vision_change_area/syntmeat_laboratory/main_lab)
 "Ki" = (
-/obj/effect/baseturf_helper/plating,
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_y = 20
 	},
@@ -5487,12 +5478,6 @@
 /obj/item/broken_bottle{
 	icon_state = "vodkabroken"
 	},
-/turf/simulated/floor/plating,
-/area/vision_change_area/syntmeat_laboratory/maintenance)
-"Kl" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/baseturf_helper/plating,
-/obj/effect/viral_gas,
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/maintenance)
 "Kn" = (
@@ -5554,6 +5539,7 @@
 /obj/structure/sign/biohazard{
 	pixel_y = 32
 	},
+/obj/item/tank/internals/emergency_oxygen/empty,
 /turf/simulated/floor/plasteel/stairs/left,
 /area/vision_change_area/syntmeat_laboratory/main_lab)
 "KK" = (
@@ -5745,7 +5731,6 @@
 /turf/simulated/floor/plasteel/darkgrey,
 /area/vision_change_area/syntmeat_laboratory/second_lab)
 "Mr" = (
-/obj/structure/closet/l3closet/virology,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel/white/corner{
 	dir = 4
@@ -5784,9 +5769,12 @@
 /turf/simulated/floor/plasteel/white,
 /area/vision_change_area/syntmeat_laboratory/main_lab)
 "MD" = (
-/obj/structure/closet/l3closet/virology,
-/obj/item/clothing/mask/gas/transparent,
 /obj/effect/decal/cleanable/dust,
+/obj/structure/closet{
+	icon_state = "bio_virology";
+	opened = 1
+	},
+/obj/item/clothing/head/bio_hood,
 /turf/simulated/floor/plasteel/white/corner,
 /area/vision_change_area/syntmeat_laboratory/virology)
 "MG" = (
@@ -5809,14 +5797,17 @@
 	color = "#ff9999";
 	name = "ammunition locker";
 	req_access = list(123);
-	opened = 1
+	opened = 1;
+	locked = 0
 	},
 /obj/item/clothing/under/syndicate/specops,
 /obj/item/radio,
 /obj/item/clothing/shoes/combat,
 /obj/item/clothing/gloves/combat,
-/obj/structure/window/reinforced/tinted{
-	dir = 8
+/obj/structure/window/reinforced{
+	dir = 8;
+	opacity = 1;
+	color = "#222222"
 	},
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/check_point)
@@ -6116,6 +6107,10 @@
 "OV" = (
 /obj/effect/decal/cleanable/dust,
 /obj/effect/decal/cleanable/glass,
+/obj/structure/closet{
+	icon_state = "bio_virology";
+	opened = 1
+	},
 /turf/simulated/floor/plasteel/white/square{
 	dir = 4
 	},
@@ -7095,8 +7090,12 @@
 /turf/simulated/floor/plating,
 /area/ruin/space/test)
 "Vy" = (
-/obj/structure/closet/l3closet/virology,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet{
+	icon_state = "bio_virology";
+	opened = 1
+	},
+/obj/item/clothing/head/bio_hood,
 /turf/simulated/floor/plasteel/white/corner,
 /area/vision_change_area/syntmeat_laboratory/main_lab)
 "Vz" = (
@@ -7124,6 +7123,7 @@
 /area/vision_change_area/syntmeat_laboratory/main_lab)
 "VI" = (
 /obj/effect/decal/cleanable/dust,
+/obj/item/clothing/suit/bio_suit,
 /turf/simulated/floor/plasteel/white/square{
 	dir = 8
 	},
@@ -7620,8 +7620,10 @@
 	},
 /obj/item/clothing/under/syndicate/specops,
 /obj/item/ammo_box/magazine/sp8,
-/obj/structure/window/reinforced/tinted{
-	dir = 8
+/obj/structure/window/reinforced{
+	dir = 8;
+	opacity = 1;
+	color = "#222222"
 	},
 /turf/simulated/floor/plating,
 /area/vision_change_area/syntmeat_laboratory/check_point)
@@ -7664,6 +7666,7 @@
 	pixel_y = -5
 	},
 /obj/effect/decal/cleanable/dust,
+/obj/item/clothing/mask/gas/transparent,
 /turf/simulated/floor/plasteel/white/side{
 	dir = 1
 	},
@@ -7684,12 +7687,10 @@
 /turf/simulated/floor/wood/fancy/parquet_square/broken,
 /area/vision_change_area/syntmeat_laboratory/kitchen)
 "Zh" = (
-/obj/structure/falsewall/titanium{
-	icon = 'icons/turf/walls/shuttle/gray_shuttle_wall.dmi'
-	},
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_y = 19
 	},
+/obj/structure/falsewall/titanium/gray,
 /turf/simulated/floor/engine,
 /area/vision_change_area/syntmeat_laboratory/second_lab)
 "Zj" = (
@@ -12049,7 +12050,7 @@ NT
 NT
 tI
 tI
-Kl
+sU
 tI
 jG
 tI
@@ -13062,7 +13063,7 @@ Iz
 Dq
 ge
 mQ
-fP
+mQ
 Tk
 Vo
 uh
@@ -13079,7 +13080,7 @@ al
 su
 NO
 bF
-Ea
+eR
 YK
 xs
 qh
@@ -13893,7 +13894,7 @@ Lw
 Lw
 NT
 NT
-qw
+wN
 wN
 uM
 jo
