@@ -872,7 +872,7 @@
 
 /obj/effect/mob_spawn/human/corpse/specops
 	mob_type = /mob/living/carbon/human
-	name = "Tacticool corpse"
+	name = "Specops corpse"
 	icon = 'icons/mob/clothing/uniform.dmi'
 	icon_state = "specops_uniform_s"
 	mob_name = "Unknown"

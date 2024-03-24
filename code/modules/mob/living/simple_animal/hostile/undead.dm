@@ -257,8 +257,8 @@
 	response_disarm = "shoves"
 	response_harm = "hits"
 	speed = -1
-	maxHealth = 60
-	health = 60
+	maxHealth = 100
+	health = 100
 	death_sound = 'sound/goonstation/effects/gib.ogg'
 
 	harm_intent_damage = 10

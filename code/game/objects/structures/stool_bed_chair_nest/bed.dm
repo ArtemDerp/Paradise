@@ -82,8 +82,8 @@
 	max_integrity = 50
 	buckle_offset = -2
 	comfort = 0.1
-	buildstacktype = /obj/item/reagent_containers/food/snacks/grown/wheat
-	buildstackamount = 5
+	buildstacktype = null
+	buildstackamount = null
 	anchored = FALSE
 	resistance_flags = FLAMMABLE
 	var/sounds = list('sound/effects/footstep/grass1.ogg', 'sound/effects/footstep/grass2.ogg', 'sound/effects/footstep/grass3.ogg', 'sound/effects/footstep/grass4.ogg')
@@ -96,6 +96,27 @@
 
 /obj/structure/bed/strawnest/Crossed(atom/movable/AM, oldloc)
 	playsound(src, pick(sounds), 60, 2)
+
+/obj/structure/bed/strawnest/deconstruct(disassembled = TRUE)
+	new /obj/item/reagent_containers/food/snacks/grown/wheat(loc)
+	..()
+
+/obj/structure/bed/strawnest/wrench_act(mob/user, obj/item/I)
+	return
+
+/obj/structure/bed/strawnest/attacked_by(obj/item/I, mob/living/user)
+	. = ..()
+	if(flags & NODECONSTRUCT)
+		to_chat(user, "<span class='warning'>You can't figure out how to deconstruct [src]!</span>")
+		return
+	if(!is_sharp(I))
+		to_chat(user, "<span class='warning'>You need something sharp to deconstruct [src]!</span>")
+		return
+	user.visible_message("<span class='warning'>[user] starts cutting through [src] with [I]!</span>", "<span class='danger'>You start cutting [src] with [I]!</span>")
+	if(do_after(user, 2 SECONDS, target = user))
+		deconstruct(TRUE)
+	else
+		to_chat(user, "<span class='warning'>Don't move while cutting [src]!</span>")
 
 /*
  * Roller beds

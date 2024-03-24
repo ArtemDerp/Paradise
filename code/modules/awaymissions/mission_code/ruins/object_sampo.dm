@@ -1,4 +1,4 @@
-/area/vision_change_area/syntmeat_laboratory
+/area/vision_change_area/object_sampo
 	poweralm = FALSE
 	report_alerts = FALSE
 	there_can_be_many = TRUE
@@ -19,9 +19,8 @@
 						'sound/ambience/spooky/ugrnd_drip_4.ogg',\
 						'sound/ambience/spooky/ugrnd_drip_5.ogg',\
 						'sound/ambience/spooky/ugrnd_drip_6.ogg',\
-						'sound/ambience/spooky/ugrnd_drip_7.ogg')
-
-	sound_environment = list('sound/ambience/spooky/argitoth.ogg',\
+						'sound/ambience/spooky/ugrnd_drip_7.ogg',\
+						'sound/ambience/spooky/argitoth.ogg',\
 						'sound/ambience/spooky/crystal_underground.ogg',\
 						'sound/ambience/spooky/moon_underground.ogg',\
 						'sound/ambience/spooky/horror.ogg',\
@@ -37,7 +36,7 @@
 	name = "Test area" /////////////////////////////////отбалансить хп и шанс отрубания у гориллы; отбалансить количество мясных зомбей и их хп/урон, скорость
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED ////////////////////
 
-/area/vision_change_area/syntmeat_laboratory/main_lab
+/area/vision_change_area/object_sampo/main_lab
 	name = "Main laboratory"
 	icon_state = "away1"
 	var/battle = FALSE
@@ -45,61 +44,66 @@
 	var/list/intruders_list
 	var/mob/living/simple_animal/hostile/skinner/boss
 
-/area/vision_change_area/syntmeat_laboratory/entrence
+/area/vision_change_area/object_sampo/entrence
 	name = "Entrence"
 	icon_state = "away2"
 
-/area/vision_change_area/syntmeat_laboratory/kitchen
+/area/vision_change_area/object_sampo/kitchen
 	name = "Kitchen"
 	icon_state = "away3"
 
-/area/vision_change_area/syntmeat_laboratory/dorms
+/area/vision_change_area/object_sampo/dorms
 	name = "Dorms"
 	icon_state = "away4"
 
-/area/vision_change_area/syntmeat_laboratory/check_point
+/area/vision_change_area/object_sampo/check_point
 	name = "Check point"
 	icon_state = "away5"
 
-/area/vision_change_area/syntmeat_laboratory/virology
+/area/vision_change_area/object_sampo/virology
 	name = "Virology"
 	icon_state = "away6"
 
-/area/vision_change_area/syntmeat_laboratory/second_lab
+/area/vision_change_area/object_sampo/second_lab
 	name = "Second laboratory"
 	icon_state = "away7"
 
-/area/vision_change_area/syntmeat_laboratory/maintenance
+/area/vision_change_area/object_sampo/maintenance
 	name = "Maintenance"
 	icon_state = "away8"
 
-/area/vision_change_area/syntmeat_laboratory/outside
-	name = "Outside"
+/area/vision_change_area/object_sampo/cap_office
+	name = "Captain's office"
 	icon_state = "away9"
-	has_gravity = FALSE
-	ambientsounds = list('sound/ambience/spooky/bass_ambience.ogg')
-	sound_environment = list('sound/ambience/spooky/space_loop1.ogg',\
-							'sound/ambience/spooky/space_loop2.ogg',\
-							'sound/ambience/spooky/space_loop3.ogg',\
-							'sound/ambience/spooky/space_loop4.ogg',\
-							'sound/ambience/spooky/space_loop5.ogg')
 
-/area/vision_change_area/syntmeat_laboratory/near_asteroid
-	name = "Space near the asteroid"
+/area/vision_change_area/object_sampo/outside
+	name = "Outside"
 	icon_state = "away10"
 	has_gravity = FALSE
-	ambientsounds = list('sound/ambience/spooky/dark_ambient_ eerie.ogg',\
-						'sound/ambience/spooky/deep_ominous_drone.ogg')
-	sound_environment = list('sound/ambience/spooky/space_loop1.ogg',\
-							'sound/ambience/spooky/space_loop2.ogg',\
-							'sound/ambience/spooky/space_loop3.ogg',\
-							'sound/ambience/spooky/space_loop4.ogg',\
-							'sound/ambience/spooky/space_loop5.ogg')
-	max_ambience_cooldown = 60 SECONDS
+	ambientsounds = list('sound/ambience/spooky/bass_ambience.ogg',\
+						'sound/ambience/spooky/space_loop1.ogg',\
+						'sound/ambience/spooky/space_loop2.ogg',\
+						'sound/ambience/spooky/space_loop3.ogg',\
+						'sound/ambience/spooky/space_loop4.ogg',\
+						'sound/ambience/spooky/space_loop5.ogg')
 
-/area/vision_change_area/syntmeat_laboratory/self_destruct
-	name = "Self destruct"
+/area/vision_change_area/object_sampo/near_asteroid
+	name = "Space near the asteroid"
 	icon_state = "away11"
+	has_gravity = FALSE
+	ambientsounds = list('sound/ambience/spooky/dark_ambient_ eerie.ogg',\
+						'sound/ambience/spooky/deep_ominous_drone.ogg',\
+						'sound/ambience/spooky/space_loop1.ogg',\
+						'sound/ambience/spooky/space_loop2.ogg',\
+						'sound/ambience/spooky/space_loop3.ogg',\
+						'sound/ambience/spooky/space_loop4.ogg',\
+						'sound/ambience/spooky/space_loop5.ogg')
+	min_ambience_cooldown = 15 SECONDS
+	max_ambience_cooldown = 30 SECONDS
+
+/area/vision_change_area/object_sampo/self_destruct
+	name = "Self destruct"
+	icon_state = "away12"
 	var/obj/machinery/syndicatebomb/our_bomb
 	var/sd_triggered = FALSE
 
@@ -107,7 +111,7 @@
 ////////////// BOSS AREA
 ///////////////////////
 
-/area/vision_change_area/syntmeat_laboratory/main_lab/proc/BlockBlastDoors()
+/area/vision_change_area/object_sampo/main_lab/proc/BlockBlastDoors()
 	if(battle)
 		return
 	for(var/obj/machinery/door/poddoor/impassable/P in GLOB.airlocks)
@@ -117,7 +121,7 @@
 	for(var/mob/trapped_one as anything in intruders_list)
 		to_chat(trapped_one, span_danger("Обнаружены неизвестные формы жизни! Активирован протокол: КАРАНТИН!"))
 
-/area/vision_change_area/syntmeat_laboratory/main_lab/proc/ready_or_not()
+/area/vision_change_area/object_sampo/main_lab/proc/ready_or_not()
 	SIGNAL_HANDLER
 	for(var/mob/living/intruders as anything in intruders_list)
 		if(intruders.is_dead() || !boss || boss.is_dead() || !intruders.mind)
@@ -126,7 +130,7 @@
 	if(length(intruders_list))
 		BlockBlastDoors()
 
-/area/vision_change_area/syntmeat_laboratory/main_lab/Entered(atom/movable/arrived)
+/area/vision_change_area/object_sampo/main_lab/Entered(atom/movable/arrived)
 	. = ..()
 	if(!boss || boss.is_dead())
 		return
@@ -149,7 +153,7 @@
 	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 5 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(ready_or_not)), 4 SECONDS, TIMER_UNIQUE)
 
-/area/vision_change_area/syntmeat_laboratory/main_lab/Exited(atom/movable/departed)
+/area/vision_change_area/object_sampo/main_lab/Exited(atom/movable/departed)
 	. = ..()
 	if(!boss || boss.is_dead())
 		return
@@ -165,7 +169,7 @@
 
 	remove_from_intruders(living_mob)
 
-/area/vision_change_area/syntmeat_laboratory/main_lab/proc/add_to_intruders(mob/living/living_mob)
+/area/vision_change_area/object_sampo/main_lab/proc/add_to_intruders(mob/living/living_mob)
 	if(!istype(living_mob))
 		return FALSE
 	if(!living_mob.mind || living_mob.is_dead())
@@ -174,7 +178,7 @@
 	RegisterSignal(living_mob, COMSIG_MOB_DEATH, PROC_REF(ready_or_not))
 	return TRUE
 
-/area/vision_change_area/syntmeat_laboratory/main_lab/proc/remove_from_intruders(mob/living/living_mob)
+/area/vision_change_area/object_sampo/main_lab/proc/remove_from_intruders(mob/living/living_mob)
 	if(!istype(living_mob))
 		return FALSE
 	if(living_mob in intruders_list)
@@ -210,7 +214,7 @@
 	/// If TRUE you should spawn it only on special area, see bossfight_area
 	var/with_area = TRUE
 
-	var/area/vision_change_area/syntmeat_laboratory/main_lab/bossfight_area
+	var/area/vision_change_area/object_sampo/main_lab/bossfight_area
 
 /mob/living/simple_animal/hostile/skinner/Initialize(mapload)
 	. = ..()
@@ -246,8 +250,8 @@
 	icon_state = "skinner"
 	icon_living = "skinner"
 	icon_dead = "skinner"
-	maxHealth = 50
-	health = 50
+	maxHealth = 60
+	health = 60
 	next_stage = /mob/living/simple_animal/hostile/skinner/stage_2
 	death_message = "<span class='danger'>I SMELL YOUR FLESH! PREPARE TO DIE!</span>"
 	melee_damage_lower = 10
@@ -318,7 +322,7 @@
 ////////////// SELF DESTRUCT
 ///////////////////////
 
-/area/vision_change_area/syntmeat_laboratory/self_destruct/Entered(mob/living/interloper)
+/area/vision_change_area/object_sampo/self_destruct/Entered(mob/living/interloper)
 	. = ..()
 	if(!sd_triggered && istype(interloper))
 		sd_triggered = TRUE
@@ -334,32 +338,32 @@
 #define DEACTIVATING_STATE "floored"
 #define IDLE_STATE "base"
 
-/obj/machinery/syndicatebomb/syntmeat
+/obj/machinery/syndicatebomb/object_sampo
 	name = "self destruct device"
 	desc = "High explosive. Don't touch."
 	icon = 'icons/obj/machines/nuke_terminal.dmi'
 	icon_state = "nuclearbomb_hatch"
 	minimum_timer = 30
 	timer_set = 30
-	payload = /obj/item/bombcore/syntmeat
+	payload = /obj/item/bombcore/object_sampo
 	can_unanchor = FALSE
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	invisibility = INVISIBILITY_ABSTRACT
 	var/activate_state = null
 
-/obj/machinery/syndicatebomb/syntmeat/Initialize(mapload) // derp, place it in target area
+/obj/machinery/syndicatebomb/object_sampo/Initialize(mapload)
 	. = ..()
-	var/area/vision_change_area/syntmeat_laboratory/self_destruct/our_area = locate() in GLOB.all_areas
+	var/area/vision_change_area/object_sampo/self_destruct/our_area = locate() in GLOB.all_areas
 	if(istype(our_area))
 		our_area.our_bomb = src
 
-/obj/machinery/syndicatebomb/syntmeat/activate()
+/obj/machinery/syndicatebomb/object_sampo/activate()
 	. = ..()
 	invisibility = 0
-	animate_on()
+	INVOKE_ASYNC(src, PROC_REF(animate_on))
 
-/obj/machinery/syndicatebomb/syntmeat/proc/animate_on()
+/obj/machinery/syndicatebomb/object_sampo/proc/animate_on()
 	sleep(2 SECONDS)
 	activate_state = ACTIVATING_STATE
 	update_icon(UPDATE_ICON_STATE)
@@ -367,7 +371,7 @@
 	activate_state = IDLE_STATE
 	update_icon(UPDATE_ICON_STATE)
 
-/obj/machinery/syndicatebomb/syntmeat/proc/animate_off()
+/obj/machinery/syndicatebomb/object_sampo/proc/animate_off()
 	sleep(2 SECONDS)
 	activate_state = DEACTIVATING_STATE
 	update_icon(UPDATE_ICON_STATE)
@@ -376,7 +380,7 @@
 	update_icon(UPDATE_ICON_STATE)
 
 
-/obj/machinery/syndicatebomb/syntmeat/update_icon_state()
+/obj/machinery/syndicatebomb/object_sampo/update_icon_state()
 	if(activate_state)
 		icon_state = "nuclearbomb_[activate_state]"
 
@@ -385,16 +389,28 @@
 #undef DEACTIVATING_STATE
 #undef IDLE_STATE
 
-/obj/item/bombcore/syntmeat
-	range_heavy = 30
-	range_medium = 35
+/obj/item/bombcore/object_sampo
+	range_heavy = 45
+	range_medium = 45
 	range_light = 40
+	range_flame = 50
 	admin_log = TRUE
 	ignorecap = TRUE
 	special_deletes = TRUE
 
-/obj/item/bombcore/syntmeat/delete_unnecessary(center)
-	for(var/atom/A as anything in range(20, center))
+/obj/item/bombcore/object_sampo/delete_unnecessary(center)
+	var/list/deletion_list = typecacheof(list(
+								/obj/structure/safe,
+								/obj/item/gun,
+								/obj/item/card/id,
+								/obj/item/clothing/suit/space/hardsuit,
+								/obj/machinery/door/poddoor,
+								/obj/machinery/power/apc,
+								/obj/machinery/ninja_bloodscan_machine,
+								/obj/machinery/light,
+								/obj/item/decorations/distillator,
+								/obj/structure/table))
+	for(var/atom/A as anything in range(25, center))
 		if(isliving(A))
 			var/mob/living/mob = A
 			mob.gib()
@@ -402,11 +418,11 @@
 			for(var/obj/item/I in A.contents)
 				qdel(I)
 			qdel(A)
-		if(istype(A, /obj/structure/safe) || istype(A, /obj/item/gun))
+		if(is_type_in_typecache(A, deletion_list))
 			qdel(A)
 
-/obj/item/bombcore/syntmeat/defuse()
-	var/obj/machinery/syndicatebomb/syntmeat/C = loc
+/obj/item/bombcore/object_sampo/defuse()
+	var/obj/machinery/syndicatebomb/object_sampo/C = loc
 	C.animate_off()
 	new /obj/effect/decal/cleanable/ash(get_turf(loc))
 	new /obj/effect/particle_effect/smoke(get_turf(loc))
@@ -472,11 +488,12 @@
 	color = "#024d0cc2"
 	var/virus = /datum/disease/virus/cadaver
 	var/chance_of_infection = 20
+	var/alpha_after_Init = 30
 
 /obj/effect/viral_gas/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/caltrop/virus, probability = chance_of_infection, flags = CALTROP_BYPASS_WALKERS, virus_type = virus)
-	alpha = 40
+	alpha = alpha_after_Init
 
 /obj/effect/viral_gas/is_cleanable()
 	if(!QDELETED(src))
@@ -490,11 +507,11 @@
 ////////////// VIRUS PILL
 ///////////////////////
 
-/obj/item/reagent_containers/food/pill/random_syntmeat_virus
-	spawned_disease = /datum/disease/virus/advance/syntmeat_random
+/obj/item/reagent_containers/food/pill/random_object_sampo_virus
+	spawned_disease = /datum/disease/virus/advance/object_sampo_random
 	disease_amount = 0.1
 
-/datum/disease/virus/advance/syntmeat_random
+/datum/disease/virus/advance/object_sampo_random
 	var/static/list/random_symptoms = list(
 		/datum/symptom/voice_change,
 		/datum/symptom/mind_restoration,
@@ -514,7 +531,7 @@
 		/datum/symptom/moan,
 	)
 
-/datum/disease/virus/advance/syntmeat_random/New()
+/datum/disease/virus/advance/object_sampo_random/New()
 	var/list/random_symptoms_copy = random_symptoms.Copy()
 	for(var/i in 1 to rand(4, 6))
 		var/datum/symptom/symptom_path = pick_n_take(random_symptoms_copy)
@@ -522,10 +539,10 @@
 	..()
 	name = capitalize(pick(GLOB.adjectives)) + " " + capitalize(pick(GLOB.nouns + GLOB.verbs))
 
-/obj/item/reagent_containers/food/pill/random_syntmeat_disease
+/obj/item/reagent_containers/food/pill/random_object_sampo_disease
 	disease_amount = 0.1
 
-/obj/item/reagent_containers/food/pill/random_syntmeat_disease/New()
+/obj/item/reagent_containers/food/pill/random_object_sampo_disease/New()
 	spawned_disease = pick(list(
 		/datum/disease/virus/transformation/jungle_fever,
 		/datum/disease/virus/anxiety,
@@ -542,23 +559,28 @@
 ////////////// PAPRERS
 ///////////////////////
 
-/obj/item/paper/crumpled/syntmeat_laboratory
+/obj/item/paper/crumpled/object_sampo
 	language = LANGUAGE_NEO_RUSSIAN
 
-/obj/item/paper/crumpled/syntmeat_laboratory/virus
+/obj/item/paper/crumpled/object_sampo/virus
 	name = "Новые вирусы и паталогии"
 	info = "<p>Разработка синтетического вируса под кодом █████████████ ведется с переменным успехом. Вирус приобрел некотролируемую форму развития и влияния на геном,\
 	в текущем виде он более подходит для боевых задач, нежели для развития синтетических форм. Несмотря на свою смертоносность: █████████████ приподнес некоторые полезные открытия. \
 	В частности мы смогли создать из мясных макак более мускулистую и сообразительную... назовем это \"гориллой\". Горилла имеет более выраженный интеллект, \
 	однако пока что не поддается дрессировке; но я верю, что мы сможем использовать её в качестве боевой единицы.</p>"
 
-/obj/item/paper/crumpled/syntmeat_laboratory/meatocreatadone
+/obj/item/paper/crumpled/object_sampo/meatocreatadone
 	name = "Синтетическая плоть"
 	info = "<p>После стабилизации meatocreatadone можно использовать не только для создания мясных макак, но и для быстрого взращивания мясных тканей: достаточно смешать \
 	meatocreatadone с кровью в пропорции 1 к 1.<br /> \
 	Последующие эксперементы по модификации реагента пока что не дают явных успехов. Однако, кажется я приближаюсь к открытию новой реакции на mutagen. \
 	Было замечено, что при нагреве meatocreatadone начинает образовывать мышичные ткани, но они отличны от синтетической плоти. Пока что я не приблизился к \
 	нужной формуле... Я уверен - еще чуть чуть и будет прорыв! Пока я понял одно: чем больше мутагена и горячее состав - тем быстрее образуются ткани.</p>"
+
+/obj/item/paper/crumpled/object_sampo/lastwords
+	name = "Что здесь произошло..."
+	info = "<p>БЛЯТЬ! Мне отсюда уже не выбраться... Группа зачистки работает уже несколько часов, но по крикам и стихающим выстрелам — понятно, что эта срань побеждает. \
+	Кажется эксперемент Дерповского пошел совсем не по плану... Что там могло произойти то? Я не верю в то, что он говорил о своей жиже, НУ НЕ МОГЛА ОНА ТАК БЫСТРО МУТИРОВАТЬ!</p>"
 
 /obj/item/joke_collection
 	name = "1000 и 1 анекдот"

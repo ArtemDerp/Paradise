@@ -394,10 +394,10 @@
 	cost = 2
 	allow_duplicates = FALSE
 
-/datum/map_template/ruin/space/syntmeat_laboratory
-	id = "syntmeat_laboratory"
-	suffix = "syntmeat_laboratory.dmm"
-	name = "syntmeat_laboratory"
+/datum/map_template/ruin/space/object_sampo
+	id = "object_sampo"
+	suffix = "object_sampo.dmm"
+	name = "Object Sampo"
 	description = "..."
 	cost = 0  ////5
 	allow_duplicates = FALSE
