@@ -645,6 +645,7 @@
 "dK" = (
 /obj/structure/table/reinforced,
 /obj/effect/viral_gas,
+/obj/effect/step_trigger/group_triggers/receiver,
 /turf/simulated/floor/wood,
 /area/vision_change_area/object_sampo/check_point)
 "dN" = (
@@ -1866,6 +1867,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/viral_gas,
+/obj/effect/step_trigger/group_triggers/receiver,
 /turf/simulated/floor/wood/broken,
 /area/vision_change_area/object_sampo/check_point)
 "lN" = (
@@ -2302,6 +2304,7 @@
 	},
 /obj/effect/spawner/lootdrop/spentcasing,
 /obj/effect/viral_gas,
+/obj/effect/step_trigger/group_triggers/receiver,
 /turf/simulated/floor/wood/oak,
 /area/vision_change_area/object_sampo/dorms)
 "oZ" = (
@@ -3364,6 +3367,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/viral_gas,
+/obj/effect/step_trigger/group_triggers/receiver,
 /turf/simulated/floor/wood,
 /area/vision_change_area/object_sampo/check_point)
 "vN" = (
@@ -3969,6 +3973,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/viral_gas,
+/obj/effect/step_trigger/group_triggers/receiver,
 /turf/simulated/floor/wood,
 /area/vision_change_area/object_sampo/check_point)
 "zE" = (
@@ -4004,6 +4009,12 @@
 /obj/effect/viral_gas,
 /turf/simulated/floor/engine,
 /area/vision_change_area/object_sampo/self_destruct)
+"zI" = (
+/obj/structure/table/wood/flipped,
+/obj/effect/viral_gas,
+/obj/effect/step_trigger/group_triggers/receiver,
+/turf/simulated/floor/plasteel/black,
+/area/vision_change_area/object_sampo/dorms)
 "zJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/old,
@@ -5460,6 +5471,7 @@
 	pixel_y = 20
 	},
 /obj/effect/viral_gas,
+/obj/effect/step_trigger/group_triggers/receiver,
 /turf/simulated/floor/plasteel/black,
 /area/vision_change_area/object_sampo/dorms)
 "Jy" = (
@@ -5996,6 +6008,7 @@
 "NE" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/viral_gas,
+/obj/effect/step_trigger/group_triggers/receiver,
 /turf/simulated/floor/plasteel/darkred/line{
 	dir = 4
 	},
@@ -7355,6 +7368,7 @@
 /obj/effect/decal/cleanable/dust,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/viral_gas,
+/obj/effect/step_trigger/group_triggers/receiver,
 /turf/simulated/floor/wood/broken,
 /area/vision_change_area/object_sampo/check_point)
 "WE" = (
@@ -7752,6 +7766,7 @@
 	pixel_x = 4
 	},
 /obj/effect/viral_gas,
+/obj/effect/step_trigger/group_triggers/receiver,
 /turf/simulated/floor/plasteel/darkred/line{
 	dir = 4
 	},
@@ -11426,7 +11441,7 @@ Qc
 hi
 Ay
 MA
-Ty
+zI
 Jw
 oQ
 YD

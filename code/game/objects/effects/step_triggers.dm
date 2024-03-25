@@ -212,9 +212,17 @@
 	triggerer_only = 1
 	sound = list('sound/ambience/spooky/scared_breathing1.ogg', 'sound/ambience/spooky/scared_breathing2.ogg', 'sound/ambience/spooky/scared_sob1.ogg', 'sound/ambience/spooky/scared_sob2.ogg')
 
+
+///////////////////////
+////////////// GROUP TRIGGERS
+///////////////////////
+
 GLOBAL_LIST_EMPTY(group_triggers)
 /obj/effect/step_trigger/group_triggers
-	var/id = 1
+	name = "group trigger"
+	icon = 'icons/effects/mapping_helpers.dmi'
+	icon_state = "not_for_map"
+	var/id = 1 //// must be tied with step_trigger_spawner id
 
 /obj/effect/step_trigger/group_triggers/Initialize(mapload)
 	. = ..()
@@ -228,3 +236,37 @@ GLOBAL_LIST_EMPTY(group_triggers)
 	for(var/obj/effect/step_trigger/group_triggers/trigger as anything in GLOB.group_triggers)
 		if(trigger.id == id)
 			qdel(trigger)
+
+//// Spawners for group triggers
+
+/// How it works? Use receivers whith the same id (if you want a large group) or just one (anyway better to change id), if one of receivers is triggered,
+/// than step_trigger_spawner spawns anything from spawn_list and all that group of effects deletes itself
+/obj/effect/step_trigger/group_triggers/receiver
+	icon_state = "alert"
+
+/obj/effect/step_trigger/group_triggers/receiver/Trigger(atom/movable/A)
+	for(var/obj/effect/spawner/step_trigger_spawner/step_spawner as anything in GLOB.step_trigger_spawners)
+		if(step_spawner.id == id)
+			step_spawner.trigger()
+	..()
+
+GLOBAL_LIST_EMPTY(step_trigger_spawners)
+/obj/effect/spawner/step_trigger_spawner
+	name = "step trigger spawner"
+	icon = 'icons/effects/mapping_helpers.dmi'
+	icon_state = "yellow"
+	invisibility = INVISIBILITY_ABSTRACT
+	var/id = 1  //// must be tied with group_triggers id
+	var/list/spawn_list
+
+/obj/effect/spawner/step_trigger_spawner/Initialize(mapload)
+	. = ..()
+	GLOB.step_trigger_spawners += src
+
+/obj/effect/spawner/step_trigger_spawner/Destroy()
+	GLOB.step_trigger_spawners -= src
+	..()
+
+/obj/effect/spawner/step_trigger_spawner/proc/trigger()
+	for(var/path in spawn_list)
+		new spawn_list(loc)
