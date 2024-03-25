@@ -543,7 +543,7 @@
 	disease_amount = 0.1
 
 /obj/item/reagent_containers/food/pill/random_object_sampo_disease/New()
-	spawned_disease = pick(list(
+	spawned_disease = pick(
 		/datum/disease/virus/transformation/jungle_fever,
 		/datum/disease/virus/anxiety,
 		/datum/disease/virus/beesease,
@@ -552,7 +552,7 @@
 		/datum/disease/virus/fake_gbs,
 		/datum/disease/virus/pierrot_throat,
 		/datum/disease/virus/advance/preset/pre_loyalty
-	))
+	)
 	..()
 
 ///////////////////////
@@ -604,7 +604,7 @@
 			to_chat(user, "<span class='notice'>Вы прочли анекдот под номером [rand(1,1001)]!</span>")
 			if(prob(40))
 				user.emote(pick("laugh", "giggle", "smile"))
-			else if(user && !(CLUMSY in user.mutations) && prob(15))
+			else if(!(CLUMSY in user.mutations) && prob(15))
 				user.adjustBrainLoss(rand(3,5))
 		else
 			to_chat(user, "<span class='notice'>Вы не успели дочитать анекдот.</span>")
@@ -613,3 +613,24 @@
 		to_chat(user, "<span class='notice'>Вы ощупали предмет, скорее всего это дешёвая книга.</span>")
 		return
 
+/obj/effect/step_trigger/group_triggers/sampo_mob/Trigger(atom/movable/A)
+	for(var/obj/effect/spawner/sampo/sampo_spawner as anything in GLOB.sampo_spawners)
+		if(sampo_spawner.id == id)
+			sampo_spawner.trigger()
+	..()
+
+GLOBAL_LIST_EMPTY(sampo_spawners)
+/obj/effect/spawner/sampo
+	invisibility = INVISIBILITY_ABSTRACT
+	var/id = 1
+
+/obj/effect/spawner/sampo/Initialize(mapload)
+	. = ..()
+	GLOB.sampo_spawners += src
+
+/obj/effect/spawner/sampo/Destroy()
+	GLOB.sampo_spawners -= src
+	..()
+
+/obj/effect/spawner/sampo/proc/trigger()
+	return

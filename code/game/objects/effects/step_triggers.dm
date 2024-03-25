@@ -211,3 +211,20 @@
 	happens_once = 1
 	triggerer_only = 1
 	sound = list('sound/ambience/spooky/scared_breathing1.ogg', 'sound/ambience/spooky/scared_breathing2.ogg', 'sound/ambience/spooky/scared_sob1.ogg', 'sound/ambience/spooky/scared_sob2.ogg')
+
+GLOBAL_LIST_EMPTY(group_triggers)
+/obj/effect/step_trigger/group_triggers
+	var/id = 1
+
+/obj/effect/step_trigger/group_triggers/Initialize(mapload)
+	. = ..()
+	GLOB.group_triggers += src
+
+/obj/effect/step_trigger/group_triggers/Destroy()
+	GLOB.group_triggers -= src
+	..()
+
+/obj/effect/step_trigger/group_triggers/Trigger()
+	for(var/obj/effect/step_trigger/group_triggers/trigger as anything in GLOB.group_triggers)
+		if(trigger.id == id)
+			qdel(trigger)
