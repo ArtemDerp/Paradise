@@ -8,7 +8,7 @@ export const Math = (props, context) => {
   const { act, data } = useBackend(context);
   const { tasks } = data;
   return (
-    <Window resizable>
+    <Window resizable theme="ntos_terminal">
       <Window.Content>
         <Table border={1}>
           {Object.keys(tasks).map(task =>(
@@ -16,7 +16,7 @@ export const Math = (props, context) => {
               {numbers.map(ans => (
                 <Table.Cell key={ans}>
                   <Button
-                    selected = {tasks[task].states[ans] == 2}
+                    selected = {tasks[task].states[ans] === 2}
                     onClick={() => act('checkAnswer', {"taskID": task, "answerID": ans})}>
                     {ans}
                   </Button>
@@ -28,6 +28,10 @@ export const Math = (props, context) => {
             </Table.Row>
           ))}
         </Table>
+        <br/>
+        <Button
+          content = "open"
+          onClick={() => act('open')}/>
       </Window.Content>
     </Window>
   );

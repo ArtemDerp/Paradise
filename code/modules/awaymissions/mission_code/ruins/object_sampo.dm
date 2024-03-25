@@ -639,6 +639,7 @@
 	if(!ui)
 		ui = new(user, src, ui_key, "Math", name, 360, 330)
 		ui.open()
+		ui.autoupdate = FALSE
 
 /obj/machinery/computer/math/proc/generate_task()
 	task = list()
@@ -668,10 +669,21 @@
 		if("checkAnswer")
 			var/task_id = params["taskID"]
 			var/answer_id = text2num(params["answerID"])
+			if(task[task_id]["states"][answer_id + 1])
+				return
 			if(answer_id == task[task_id]["answer"])
 				task[task_id]["states"][answer_id + 1] = CORRECT_ANSWER_STATE
+				SStgui.update_uis(src)
+				done += 1
 			else
 				task[task_id]["states"][answer_id + 1] = WRONG_ANSWER_STATE
+				wrong_answer(ui.user)
+
+		if("open")
+			if(done == 10)
+				win(ui.user)
+
+
 
 /obj/machinery/computer/math/ui_data(mob/user)
 	var/list/data = list("tasks" = task)
@@ -679,6 +691,9 @@
 
 /obj/machinery/computer/math/proc/wrong_answer(mob/user)
 	to_chat(world, "иди нахуй")
+
+/obj/machinery/computer/math/proc/win(mob/user)
+	to_chat(world, "МАЛАДЕЦ")
 
 #undef NO_ANSWER_STATE
 #undef WRONG_ANSWER_STATE
