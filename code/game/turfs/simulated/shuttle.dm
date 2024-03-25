@@ -21,18 +21,16 @@
 
 /turf/simulated/wall/shuttle/ricochet/gray/can_exlode/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(EXPLODE_DEVASTATE)
 			ChangeTurf(baseturf)
 			return
-		if(2.0)
+		if(EXPLODE_HEAVY)
 			if(prob(50))
 				take_damage(rand(150, 250))
 			else
 				dismantle_wall(1, 1)
-		if(3.0)
+		if(EXPLODE_LIGHT)
 			take_damage(rand(0, 250))
-		else
-	return
 
 /turf/simulated/wall/shuttle/ricochet/gray/can_exlode/nodiagonal
 	smooth = SMOOTH_MORE

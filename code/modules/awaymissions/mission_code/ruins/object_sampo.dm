@@ -543,7 +543,7 @@
 	disease_amount = 0.1
 
 /obj/item/reagent_containers/food/pill/random_object_sampo_disease/New()
-	spawned_disease = pick(list(
+	spawned_disease = pick(
 		/datum/disease/virus/transformation/jungle_fever,
 		/datum/disease/virus/anxiety,
 		/datum/disease/virus/beesease,
@@ -552,7 +552,7 @@
 		/datum/disease/virus/fake_gbs,
 		/datum/disease/virus/pierrot_throat,
 		/datum/disease/virus/advance/preset/pre_loyalty
-	))
+	)
 	..()
 
 ///////////////////////
@@ -604,7 +604,7 @@
 			to_chat(user, "<span class='notice'>Вы прочли анекдот под номером [rand(1,1001)]!</span>")
 			if(prob(40))
 				user.emote(pick("laugh", "giggle", "smile"))
-			else if(user && !(CLUMSY in user.mutations) && prob(15))
+			else if(!(CLUMSY in user.mutations) && prob(15))
 				user.adjustBrainLoss(rand(3,5))
 		else
 			to_chat(user, "<span class='notice'>Вы не успели дочитать анекдот.</span>")
