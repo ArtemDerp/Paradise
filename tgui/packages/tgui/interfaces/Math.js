@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { AnimatedNumber, Button, LabeledList, NoticeBox, ProgressBar, Section, Table } from '../components';
+import { Button, Box, Table } from '../components';
 import { Window } from '../layouts';
 
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -16,7 +16,7 @@ export const Math = (props, context) => {
               {numbers.map(ans => (
                 <Table.Cell key={ans}>
                   <Button
-                    selected = {tasks[task].states[ans] === 2}
+                    selected = {tasks[task].choosen === ans}
                     onClick={() => act('checkAnswer', {"taskID": task, "answerID": ans})}>
                     {ans}
                   </Button>
@@ -29,9 +29,11 @@ export const Math = (props, context) => {
           ))}
         </Table>
         <br/>
-        <Button
-          content = "open"
-          onClick={() => act('open')}/>
+        <Box align="center">
+          <Button
+            content = "open"
+            onClick={() => act('open')}/>
+        </Box>
       </Window.Content>
     </Window>
   );

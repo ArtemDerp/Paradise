@@ -616,18 +616,13 @@
 		to_chat(user, "<span class='notice'>Вы ощупали предмет, скорее всего это дешёвая книга.</span>")
 		return
 
-#define NO_ANSWER_STATE 0
-#define WRONG_ANSWER_STATE 1
-#define CORRECT_ANSWER_STATE 2
-
 /obj/machinery/computer/math
 	name = "math"
 	var/list/task
-	var/done = 0
+	var/timer
 
 /obj/machinery/computer/math/New()
 	..()
-	generate_task()
 
 /obj/machinery/computer/math/attack_hand(mob/user)
 	if(..())
@@ -637,13 +632,18 @@
 /obj/machinery/computer/math/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = TRUE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
+		generate_task()
 		ui = new(user, src, ui_key, "Math", name, 360, 330)
 		ui.open()
 		ui.autoupdate = FALSE
 
 /obj/machinery/computer/math/proc/generate_task()
+	if(timer)
+		deltimer(timer)
+		timer = null
+	timer = addtimer(CALLBACK(src, PROC_REF(generate_task)), 2 MINUTES, TIMER_UNIQUE | TIMER_STOPPABLE)
 	task = list()
-	for(var/i in 1 to 10)
+	for(var/i in 0 to 9)
 		var/op1  = rand(1, 9)
 		var/op2  = rand(1, 9)
 		var/answer
@@ -652,12 +652,9 @@
 			answer = (op1 + op2) % 10
 			sign = "+"
 		else
-			answer = (op1 - op2) % 10
+			answer = abs((op1 - op2) % 10)
 			sign = "-"
-		task["[i]"] = list("answer" = answer, "op1" = op1, "op2" = op2, "sign" = sign,
-		 			   "states" = list(NO_ANSWER_STATE, NO_ANSWER_STATE, NO_ANSWER_STATE, NO_ANSWER_STATE,
-					    NO_ANSWER_STATE, NO_ANSWER_STATE, NO_ANSWER_STATE, NO_ANSWER_STATE,
-						NO_ANSWER_STATE, NO_ANSWER_STATE))
+		task["[i]"] = list("answer" = answer, "op1" = op1, "op2" = op2, "sign" = sign, "choosen" = 0)
 
 /obj/machinery/computer/math/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
@@ -669,32 +666,24 @@
 		if("checkAnswer")
 			var/task_id = params["taskID"]
 			var/answer_id = text2num(params["answerID"])
-			if(task[task_id]["states"][answer_id + 1])
-				return
-			if(answer_id == task[task_id]["answer"])
-				task[task_id]["states"][answer_id + 1] = CORRECT_ANSWER_STATE
-				SStgui.update_uis(src)
-				done += 1
-			else
-				task[task_id]["states"][answer_id + 1] = WRONG_ANSWER_STATE
-				wrong_answer(ui.user)
-
+			task[task_id]["choosen"] = answer_id
+			SStgui.update_uis(src)
 		if("open")
+			var/done = 0
+			for(var/check in task)
+				if(task[check]["answer"] == task[check]["choosen"])
+					done += 1
 			if(done == 10)
 				win(ui.user)
-
-
+			else
+				wrong_answer(ui.user, 10-done)
 
 /obj/machinery/computer/math/ui_data(mob/user)
 	var/list/data = list("tasks" = task)
 	return data
 
-/obj/machinery/computer/math/proc/wrong_answer(mob/user)
+/obj/machinery/computer/math/proc/wrong_answer(mob/user, var/proebalsya)
 	to_chat(world, "иди нахуй")
 
 /obj/machinery/computer/math/proc/win(mob/user)
 	to_chat(world, "МАЛАДЕЦ")
-
-#undef NO_ANSWER_STATE
-#undef WRONG_ANSWER_STATE
-#undef CORRECT_ANSWER_STATE
